@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('menu.menuPrincipal');
 });
+
+Route::get('/pdv' , function() {
+    return view('pdv.pdv');
+})->name('pdv');

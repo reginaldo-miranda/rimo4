@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header {
+    width: 95%;
+    height: 43px;
+    margin-top: 2px;
+    margin-left: 45px;
+    background-color: #5b859a;
+    position: fixed;
+    /* text-align: center; */
+}
+
+.menuLateral {
+    margin-top: 55px;
+    margin-left: 15px;
+    background-color: #07293a;
+    width: 250px;
+    height: 400px;
+    position: fixed;
+    left: -270px;
+    transition: left 0.5s;
+}
+
+.menuLateral .titulo {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    line-height: 40px;
+    border-bottom: 2px solid red;
+}
+
+.menuLateral ul {
+    list-style: none;
+}
+
+.menuLateral ul li {
+    line-height: 30px;
+    border-bottom: 1px solid red;
+}
+
+.menuLateral ul li a {
+    color: white;
+    padding-left: 30px;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+}
+
+.menuLateral ul li a:hover {
+    background-color: #370707;
+    transition: 0.6s;
+}
+
+.menuLateral ul ul li a {
+    font-size: 12px;
+    font-weight: 300;
+    padding-left: 60px;
+    background-color: #131313;
+}
+
+.menuLateral ul ul {
+    display: none;
+}
+
+.menuLateral ul .itemprodutos.mostra {
+    display: block;
+}
+
+.menuLateral ul.itemfuncionais.mostra {
+    display: block;
+}
+
+.menuLateral ul li a span {
+    position: absolute;
+    font-size: 30px;
+    right: 25px;
+    transition: 0.4s;
+}
+
+.menuLateral ul li a span.gira {
+    transform: rotate(90deg);
+}
+
+.menuLateral.abre {
+    left: 0;
+}
+
+.btnAbre {
+    position: absolute;
+    top: 2px;
+    left: 12px;
+    height: 43px;
+    border-radius: 1px;
+    cursor: pointer;
+    background-color: #5b859a;
+    color: white;
+}
+
+.btnAbre span {
+    font-size: 30px;
+}
+
+.btnFecha {
+    position: relative;
+    top: 6px;
+    left: 15px;
+}
+
+.btnFecha:hover {
+    color: #5b859a;
+}
+
+
+/* ------------- menu horizonttal ----------------------------- */
+
+.menuh {
+    padding-left: 12px;
+}
+
+.menuh ul li {
+    background-color: #5b859a;
+    float: left;
+    width: 200px;
+    height: 35px;
+    display: inline-block;
+    text-align: center;
+    line-height: 35px;
+    position: relative;
+}
+
+.menuh ul li:hover {
+    background-color: #4b1acf;
+}
+
+.menuh ul {
+    padding: 0;
+}
+
+.menuh ul ul {
+    display: none;
+}
+
+.menuh ul li:hover>ul {
+    display: block;
+}
+
+.menuh ul ul ul {
+    margin-left: 201px;
+    top: 0px;
+    position: absolute;
+}
+
+.menuh a {
+    color: white;
+}

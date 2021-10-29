@@ -1,5 +1,5 @@
 <html>
-  {{--   @extends('app') --}}
+     @extends('layout')
 <style type="text/css">
 
 <style>
@@ -167,7 +167,7 @@ header{
             <li><a href="#">Venda</a>
 
                 <ul>
-                    <li><a href="#">Pdv</a></li>
+                    <li><a href="{{route('pdv')}}">Pdv</a></li>
                     <li><a href="#">Pedido</a>
                         <ul>
                             <li><a href="#">Pedido Venda</a></li>
