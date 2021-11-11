@@ -20,3 +20,14 @@ Route::get('/', function () {
 Route::get('/pdv' , function() {
     return view('pdv.pdv');
 })->name('pdv');
+
+
+
+/* ------------------------ produtos --------------------------------*/
+Route::get('/produtos', function(){
+    return view('produtos.cadastro');
+})->name('produtos');
+
+Route::post('produtos', [ProdutosController::class,'store'])->name('prod_cadastro');
+
+/* -------------------------------------------------------------------*/
