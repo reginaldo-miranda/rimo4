@@ -1,5 +1,5 @@
 
-<form action="{{ route('produtos')}}" method="post">
+<form action="{{ route('prod_cadastro')}}" method="post">
     @csrf
     <div>
         <div>
@@ -11,7 +11,7 @@
     <div>
         <label>Unidade</label>
     </div>
-    <input type="text" name="Unidade">
+    <input type="text" name="un">
 
 
     </div>
@@ -19,19 +19,19 @@
         <div>
             <label>Grupo</label>
         </div>
-        <input type="text" name="Grupo">
+        <input type="text" name="grupo">
     </div>
     <div>
         <div>
             <label>Preco Venda</label>
         </div>
-        <input type="text" name="Preco Venda">
+        <input type="text" name="pvenda">
     </div>
     <div>
         <div>
             <label>Qtde</label>
         </div>
-        <input type="text" name="Qtde">
+        <input type="text" name="qde">
     </div>
 
     <div>

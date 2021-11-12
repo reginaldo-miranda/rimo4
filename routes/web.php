@@ -1,6 +1,8 @@
 <?php
-
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+
+//use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,7 @@ Route::get('/produtos', function(){
     return view('produtos.cadastro');
 })->name('produtos');
 
-Route::post('produtos', [ProdutosController::class,'store'])->name('prod_cadastro');
+//Route::post('produtos', [App\Http\Controllers\ProdutoController::class,'store'])->name('prod_cadastro');
+Route::post('produtos', [ProdutoController::class,'store'])->name('prod_cadastro');
 
 /* -------------------------------------------------------------------*/
