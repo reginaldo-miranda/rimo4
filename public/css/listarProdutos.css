@@ -1,0 +1,30 @@
+#btndeletar{
+
+    width: 55px;
+    height: 20px;
+    background-color: rgb(255, 0, 0);
+    text-align: center;
+   /* float: left;
+    top: 50%; */ 
+    position: relative; 
+ 
+    /* flex para alinhar conteúdo */
+    
+    justify-content: center;
+  /*  align-items: center; */
+ }
+
+ #btneditar{
+ width: 55px;
+ height: 20px;
+ background-color: rgb(0, 162, 255);
+ text-align: center;
+/* float: left;
+ top: 50%; */ 
+ position: relative; 
+
+ /* flex para alinhar conteúdo */
+ 
+ justify-content: center;
+/*  align-items: center; */
+}

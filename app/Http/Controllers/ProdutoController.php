@@ -12,9 +12,17 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public $produtos;
+ 
     public function index()
     {
-        //
+        $produtos = produto::paginate(15);
+
+        
+      //  dd($produtos);
+
+        return view('produtos.listarProdutos', compact('produtos'));
     }
 
     /**
@@ -37,9 +45,11 @@ class ProdutoController extends Controller
     {
       //  dd($request->all());
 
-        $produto = produto::create($request->all());
+        $produtos = produto::create($request->all());
 
-        return view('produtos.listarProdutos');
+        // return view('produtos.listarProdutos');
+         
+         return redirect()->route('listarTudo');
     }
 
     /**
@@ -61,7 +71,7 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+         return 'aqui na edit';
     }
 
     /**

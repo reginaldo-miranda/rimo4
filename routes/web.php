@@ -23,6 +23,10 @@ Route::get('/pdv' , function() {
     return view('pdv.pdv');
 })->name('pdv');
 
+Route::get('/cadastro' , function() {
+    return view('produtos.cadastro');
+})->name('cadastro');
+
 
 
 /* ------------------------ produtos --------------------------------*/
@@ -32,5 +36,8 @@ Route::get('/produtos', function(){
 
 //Route::post('produtos', [App\Http\Controllers\ProdutoController::class,'store'])->name('prod_cadastro');
 Route::post('produtos', [ProdutoController::class,'store'])->name('prod_cadastro');
+
+Route::get('listarTudo', [ProdutoController::class, 'index'])->name('listarTudo');
+
 
 /* -------------------------------------------------------------------*/

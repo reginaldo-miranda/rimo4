@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('css/menu.css')}}">
         <link rel="stylesheet" href="{{ asset('css/modalProd.css')}}">  
         <link rel="stylesheet" href="{{ asset('css/pdv_form.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/listarProdutos.css')}}">
   
     <!-- Fonts -->
 
