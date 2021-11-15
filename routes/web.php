@@ -38,6 +38,6 @@ Route::get('/produtos', function(){
 Route::post('produtos', [ProdutoController::class,'store'])->name('prod_cadastro');
 
 Route::get('listarTudo', [ProdutoController::class, 'index'])->name('listarTudo');
-
+Route::get('edit{$id}', [ProdutoController::class, 'edit'])->name('editarProd');
 
 /* -------------------------------------------------------------------*/

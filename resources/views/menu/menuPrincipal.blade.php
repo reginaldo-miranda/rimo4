@@ -266,6 +266,8 @@ header{
     });
 
 </script>
+<br><br>
+<a href="{{ route('listarTudo')}}">Listar Produtos</a>
 
 
 </html>
