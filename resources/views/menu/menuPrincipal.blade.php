@@ -198,9 +198,10 @@ header{
             <li><a class="produtos" href="#">Produtos</a>
                 <ul class="itemprodutos" >
                     <li><a href="{{ route('produtos')}}">Produtos</a></li>
-                    <li><a href="#">Grupo</a></li>
-                    {{--  <li><a href="{{ route('grupo.index')}}">Grupo</a></li> --}}
+                   {{--  <li><a href="#">Grupo</a></li> --}}
+                    <li><a href="{{ route('grupo')}}">Grupo</a></li>
                     <li><a href="#">Tipos</a></li>
+                    <li><a href="{{ route('listarTudo')}}">Listar Produtos</a></li>
                 </ul>
             </li>
             <li><a href="#">Usarios</a></li>
@@ -266,8 +267,5 @@ header{
     });
 
 </script>
-<br><br>
-<a href="{{ route('listarTudo')}}">Listar Produtos</a>
-
 
 </html>

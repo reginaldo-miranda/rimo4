@@ -1,19 +1,17 @@
 @extends('layout')
 
+<h1>Listagem de grupos</h1>
 
-<h1>Listagem de Produtos</h1>
-
-@foreach ($produtos as $prod)
+@foreach ($grupos as $grup)
   <div>
         <tr>
                  
-            <td>{{ $prod->id }}</td>
-            <td>{{ $prod->qde }}</td>
-            <td>{{ $prod->descricao }}</td>
-            <td>{{ number_format($prod->pvenda, 2, ',', '.') }}</td>
-            <td>
+            <td>{{ $grup->id }}</td>
+            <td>{{ $grup->desconto }}</td>
+            <td>{{ $grup->descricao }}</td>
+            
               @csrf
-                <a href="{{ route('show', $prod->id) }}">
+                <a href="{{ route('show', $grup->id) }}">
                 
                   <button id="btneditar" >
                        Editar
@@ -22,7 +20,7 @@
                 
             </td>
             <td>
-              <a href=""{{ route('apagar', $prod->id) }}">
+              <a href=""{{ route('apagar', $grup->id) }}">
                   <button id="btndeletar" >
                        Deletar
                    </button> 
@@ -41,4 +39,4 @@
   
 @endforeach
 
-{{ $produtos->links() }}
+{{ $grupos->links() }}

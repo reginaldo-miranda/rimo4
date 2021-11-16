@@ -1,28 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Produto;
 
+use App\Models\Grupo;
 use Illuminate\Http\Request;
 
-class ProdutoController extends Controller
+class GrupoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public $grupos;
 
-     public $produtos;
- 
     public function index()
     {
-        $produtos = produto::paginate(15);
+       $grupos = grupo::paginate(5);
 
-        
-      //  dd($produtos);
-
-        return view('produtos.listarProdutos', compact('produtos'));
+       return view('produtos.grupos.listarGrupos' , compact('grupos'));
     }
 
     /**
@@ -43,50 +39,41 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-      //  dd($request->all());
+        $grupos = grupo::create($request->all());
 
-        $produtos = produto::create($request->all());
-
-        // return view('produtos.listarProdutos');
-         
-         return redirect()->route('listarTudo');
+        return redirect()->route('listar_grupo');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Grupo $grupo)
     {
-       if(!$produto = produto::find($id)){
-           return redirect()-route('listarTudo');
-       };
-        
-       return view('produtos.cadastro', compact('produto'));
-    
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Grupo $grupo)
     {
-       dd($id);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Grupo $grupo)
     {
         //
     }
@@ -94,18 +81,11 @@ class ProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Grupo $grupo)
     {
-
-      // dd($id);
-       if(!$produtos = produto::find($id)){
-            return redirect()-route('listarTudo');
-        };
-          $produtos->delete();
-      
-        return 'apagado ';
+        //
     }
 }

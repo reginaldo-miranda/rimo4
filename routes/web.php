@@ -34,10 +34,30 @@ Route::get('/produtos', function(){
     return view('produtos.cadastro');
 })->name('produtos');
 
+
+
 //Route::post('produtos', [App\Http\Controllers\ProdutoController::class,'store'])->name('prod_cadastro');
 Route::post('produtos', [ProdutoController::class,'store'])->name('prod_cadastro');
 
+
+
 Route::get('listarTudo', [ProdutoController::class, 'index'])->name('listarTudo');
-Route::get('edit{$id}', [ProdutoController::class, 'edit'])->name('editarProd');
+
+Route::get('show/{id}', [ProdutoController::class,'show'])->name('show');
+
+Route::delete('apagar/{id}', [ProdutoController::class,'destroy'])->name('apagar');
+
 
 /* -------------------------------------------------------------------*/
+
+/*------------------------ grupo de produtos -------------------------*/
+
+
+Route::get('/grupo' , function(){
+    return view('produtos.grupos.cadastro');
+})->name('grupo');
+
+Route::post('grupo', [GrupoController::class, 'store'])->name('prod_grupo');
+Route::get('listarGrupo', [GrupoController::class, 'index'])->name('listar_grupo');
+
+/*----------------------------------------------------------------------*/
