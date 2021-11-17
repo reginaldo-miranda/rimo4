@@ -30,9 +30,11 @@ Route::get('/cadastro' , function() {
 
 
 /* ------------------------ produtos --------------------------------*/
+/*
 Route::get('/produtos', function(){
     return view('produtos.cadastro');
 })->name('produtos');
+*/
 
 
 
@@ -48,6 +50,7 @@ Route::get('show/{id}', [ProdutoController::class,'show'])->name('show');
 Route::delete('apagar/{id}', [ProdutoController::class,'destroy'])->name('apagar');
 
 
+
 /* -------------------------------------------------------------------*/
 
 /*------------------------ grupo de produtos -------------------------*/
@@ -59,5 +62,7 @@ Route::get('/grupo' , function(){
 
 Route::post('grupo', [GrupoController::class, 'store'])->name('prod_grupo');
 Route::get('listarGrupo', [GrupoController::class, 'index'])->name('listar_grupo');
+
+Route::get('selecionar',[GrupoController::class, 'selecionar'])->name('selecionar');
 
 /*----------------------------------------------------------------------*/

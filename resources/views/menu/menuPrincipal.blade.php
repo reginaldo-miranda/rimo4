@@ -1,4 +1,4 @@
-<html>
+a<html>
      @extends('layout')
 <style type="text/css">
 
@@ -197,11 +197,13 @@ header{
             <li><a href="#">Fornecedores</a></li>
             <li><a class="produtos" href="#">Produtos</a>
                 <ul class="itemprodutos" >
-                    <li><a href="{{ route('produtos')}}">Produtos</a></li>
+                  {{--   <li><a href="{{ route('produtos')}}">Produtos</a></li> --}}
+                    <li><a href="{{ route('selecionar')}}">Produtos</a></li>
                    {{--  <li><a href="#">Grupo</a></li> --}}
                     <li><a href="{{ route('grupo')}}">Grupo</a></li>
                     <li><a href="#">Tipos</a></li>
                     <li><a href="{{ route('listarTudo')}}">Listar Produtos</a></li>
+                    <li><a href="{{ route('listar_grupo')}}">Listar Grupos</a> </li>
                 </ul>
             </li>
             <li><a href="#">Usarios</a></li>

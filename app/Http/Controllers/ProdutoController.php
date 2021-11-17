@@ -14,6 +14,13 @@ class ProdutoController extends Controller
      */
 
      public $produtos;
+     public $grupo;
+
+     public function __constuct(){
+
+       $grupo = grupo::get();
+       return view('produtos.grupos.selecionar', compact('grupo'));
+     }
  
     public function index()
     {

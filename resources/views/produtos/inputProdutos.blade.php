@@ -17,9 +17,11 @@
     </div>
     <div>
         <div>
-            <label>Grupo</label>
+           {{--  <label>Grupo</label> --}}
+               @include('produtos.grupos.selecionar') 
         </div>
-        <input type="text" name="grupo">
+      
+     
     </div>
     <div>
         <div>
@@ -33,6 +35,7 @@
         </div>
         <input type="text" name="qde">
     </div>
+    
 
     <div>
         <div>

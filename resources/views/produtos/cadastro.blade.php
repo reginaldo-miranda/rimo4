@@ -3,3 +3,4 @@
 
 @include('produtos.inputProdutos')
 
+ {{-- https://www.devmedia.com.br/forum/form-select-do-laravel/593073 --}}

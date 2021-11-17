@@ -13,6 +13,7 @@ class GrupoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $grupos;
+ 
 
     public function index()
     {
@@ -87,5 +88,12 @@ class GrupoController extends Controller
     public function destroy(Grupo $grupo)
     {
         //
+    }
+
+    public function selecionar(){
+
+        $grupo = grupo::get();
+      //  dd($grupo);
+        return view('produtos.cadastro',compact('grupo'));
     }
 }
