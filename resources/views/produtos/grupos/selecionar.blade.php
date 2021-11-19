@@ -4,11 +4,7 @@
 
   function escol(valor){
     
-   // alert(valor);   
-   // var d=document.getElementById("escol");
-  //  var displaytext = d.options[d.selectedIndex].text;
-  //  document.getElementById("inputselect").value=displaytext;
-       document.getElementById("inputselect").value=valor;
+    document.getElementById("inputselect").value=valor;
 
   }
 </script>
@@ -24,7 +20,7 @@
     
     </select>
 
- <input type="text" id="inputselect" name="grupo"/>
+ <input type="hidden" id="inputselect" name="grupo"/>
 
 </div>
 
