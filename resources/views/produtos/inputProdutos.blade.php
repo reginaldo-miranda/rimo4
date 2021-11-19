@@ -18,12 +18,9 @@
     <div>
         <div>
            {{--  <label>Grupo</label> --}}
-               @include('produtos.grupos.selecionar') 
-        </div>
-      
-     
-    </div>
-    <div>
+               @include('produtos.grupos.selecionar')  
+
+          <div>
         <div>
             <label>Preco Venda</label>
         </div>

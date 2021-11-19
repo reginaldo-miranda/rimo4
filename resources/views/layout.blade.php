@@ -23,9 +23,8 @@
 
 <body>
 
+
   <!--  @yield('content') -->
-
-
 
     @livewireScripts 
     
