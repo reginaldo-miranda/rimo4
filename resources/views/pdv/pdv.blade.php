@@ -10,4 +10,8 @@
    </div>
 
  @include('produtos.grupos.selecionar')
+ 
+ @foreach($produtos as $prod)
+   {{ $prod->descricao}}
+ @endforeach 
 </div>

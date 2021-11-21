@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pdv;
 use App\Models\Grupo;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class PdvController extends Controller
@@ -37,9 +38,9 @@ class PdvController extends Controller
      */
     public function create()
     {
-
+        $produtos = produto::get();
         $grupo = grupo::get();
-        return view('pdv.pdv' ,compact('grupo'));
+        return view('pdv.pdv' ,compact('grupo', 'produtos'));
     }
 
     /**
@@ -61,7 +62,7 @@ class PdvController extends Controller
      */
     public function show(Pdv $pdv)
     {
-        //
+        $_POST['valorescolhido'] = valor;
     }
 
     /**

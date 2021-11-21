@@ -5,7 +5,7 @@
   function escol(valor){
     
     document.getElementById("inputselect").value=valor;
-
+    $valorescolhido = $_POST['valor'];
   }
 </script>
 
