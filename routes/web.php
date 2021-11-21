@@ -19,13 +19,14 @@ Route::get('/', function () {
     return view('menu.menuPrincipal');
 });
 
-Route::get('/pdv' , function() {
-    return view('pdv.pdv');
-})->name('pdv');
 
-Route::get('/cadastro' , function() {
-    return view('produtos.cadastro');
-})->name('cadastro');
+/*------------------------ PDV -------------------------------------*/
+
+Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
+
+
+/*---------------------------------------------------------------------
+
 
 
 
@@ -35,7 +36,9 @@ Route::get('/produtos', function(){
     return view('produtos.cadastro');
 })->name('produtos');
 */
-
+Route::get('/cadastro' , function() {
+    return view('produtos.cadastro');
+})->name('cadastro');
 
 
 //Route::post('produtos', [App\Http\Controllers\ProdutoController::class,'store'])->name('prod_cadastro');
@@ -66,3 +69,13 @@ Route::get('listarGrupo', [GrupoController::class, 'index'])->name('listar_grupo
 Route::get('selecionar',[GrupoController::class, 'selecionar'])->name('selecionar');
 
 /*----------------------------------------------------------------------*/
+
+/*---------------------------- Clientes --------------------------------*/
+
+Route::get('clientes',[ClientesController::class, 'create'])->name('clientes');
+
+Route::post('clientes-store', [ClientesController::class, 'store'])->name('clientes-store');
+Route::get('listarClientes',[ClientesController::class, 'index' ])->name('listarClientes');
+
+
+/*-----------------------------------------------------------------------*/

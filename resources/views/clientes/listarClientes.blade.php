@@ -1,19 +1,19 @@
 @extends('layout')
 
 
-<h1>Listagem de Produtos</h1>
+<h1>Listagem de Cliente</h1>
 
-@foreach ($produtos as $prod)
+@foreach ($clientes as $clie)
   <div>
         <tr>
                  
-            <td>{{ $prod->id }}</td>
-            <td>{{ $prod->qde }}</td>
-            <td>{{ $prod->descricao }}</td>
-            <td>{{ number_format($prod->pvenda, 2, ',', '.') }}</td>
+            <td>{{ $clie->id }}</td>
+            <td>{{ $clie->nome }}</td>
+            <td>{{ $clie->fone1 }}</td>
+           
             <td>
               @csrf
-                <a href="{{ route('show', $prod->id) }}">
+                <a href="#">
                 
                   <button id="btneditar" >
                        Editar
@@ -22,13 +22,13 @@
                 
             </td>
             <td>
-              <a href="{{ route('apagar', $prod->id) }}">
+              <a href="#">
                   <button id="btndeletar" >
                        Deletar
                    </button> 
                 </a> 
             {{-- 
-                <form action="{{ route('apagar', $prod->id) }}" method="post">
+                <form action="{{ route('apagar', $clie->id) }}" method="post">
                    @csrf
                     <input type="hidden" name="_method" value="DELETE">
         
@@ -41,4 +41,4 @@
   
 @endforeach
 
-{{ $produtos->links() }}
+{{ $clientes->links() }}

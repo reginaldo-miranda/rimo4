@@ -1,4 +1,4 @@
-a<html>
+<html>
      @extends('layout')
 <style type="text/css">
 
@@ -76,6 +76,10 @@ header{
 }
 .menuLateral ul.itemfuncionais.mostra{
 
+    display: block;
+}
+
+.menuLateral ul.itemclientes.mostra{
     display: block;
 }
 
@@ -193,8 +197,15 @@ header{
     <div class="titulo">Fechar</div>
         <ul class="itemprodutos">
             <li><a href="#">Voltar</a></li>
-            <li><a href="#">Clientes</a></li>
+
+            <li><a class="clientes" href="#">Clientes</a>
+               <ul class="itemclientes">
+                    <li><a href="{{ route('clientes')}}">Cadastro</a></li>
+                    <li><a href="{{ route('listarClientes') }}">Listar</a></li>
+               </ul>
+            </li>  
             <li><a href="#">Fornecedores</a></li>
+
             <li><a class="produtos" href="#">Produtos</a>
                 <ul class="itemprodutos" >
                   {{--   <li><a href="{{ route('produtos')}}">Produtos</a></li> --}}
@@ -233,6 +244,10 @@ header{
       $('.menuLateral ul .itemprodutos').toggleClass('mostra');
     });
 
+    $('.clientes').click(function() {
+      $('.menuLateral ul .itemclientes').toggleClass('mostra');
+    });
+
     $('.btnAbre').click(function(){
         $('.menuLateral').toggleClass('abre');
     });
@@ -254,12 +269,25 @@ header{
         $('.menuLateral ul .seta1').toggleClass('gira');
     });
 
+
+
     $('.funcionais').mouseover(function(){
         $('.menuLateral ul .seta2').toggleClass('gira');
     });
     $('.funcionais').mouseout(function(){
         $('.menuLateral ul .seta2').toggleClass('gira');
     });
+
+   
+
+    $('.clientes').mouseover(function(){
+        $('.menuLateral ul .seta3').toggleClass('gira');
+    });
+
+    $('.clientes').mouseout(function(){
+        $('.menuLateral ul .seta3').toggleClass('gira');
+    });
+
     const $menuLateral = $('.menuLateral');
     $(document).mouseup(e => {
         if(!$menuLateral.is(e.target) && $menuLateral.has(e.target).length === 0)

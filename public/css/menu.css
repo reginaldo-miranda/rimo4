@@ -74,6 +74,10 @@ header {
     display: block;
 }
 
+.menuLateral ul.itemclientes.mostra{
+    display: block;
+}
+
 .menuLateral ul li a span {
     position: absolute;
     font-size: 30px;
