@@ -12,7 +12,9 @@
 <div class="form-group">
 <label for="marca_id">Grupo</label><br>
 
-    <select id="escolher" onchange="escol(this.value);">
+    <select id="escolher" onchange="escol(this.value);"> 
+    
+
         <option>escolha o grupo</option>
         @foreach($grupo as $grup)
            <option value="{{$grup->id}}">{{$grup->descricao}}</option>

@@ -41,12 +41,12 @@ class PdvController extends Controller
     {   
         $produtos = produto::get();
         $grupo = grupo::get();
-        $escolha = $_POST[$valorescolhido];
+      //  $escolha = $_POST[$valorescolhido];
 
-        $pprodutos = produto::where('grupo','escolha')->get();
-        $frprodutos = $pprodutos->fseekfresh();
+       // $pprodutos = produto::where('grupo','escolha')->get();
+       // $frprodutos = $pprodutos->fseekfresh();
 
-        return view('pdv.pdv' ,compact('grupo', 'frprodutos'));
+        return view('pdv.pdv' ,compact('grupo', 'produtos'));
 
         //return redirect()->route('show', ['id' => 1]);
         //return redirect()->route('profile', ['id' => 1]);
