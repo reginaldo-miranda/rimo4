@@ -16,6 +16,7 @@ class PdvController extends Controller
      */
     public $produtos;
     public $grupo;
+    public $valorescolhido, $escolha;
 
 
    /* public function __constuct(){
@@ -37,10 +38,24 @@ class PdvController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
         $produtos = produto::get();
         $grupo = grupo::get();
-        return view('pdv.pdv' ,compact('grupo', 'produtos'));
+        $escolha = $_POST[$valorescolhido];
+
+        $pprodutos = produto::where('grupo','escolha')->get();
+        $frprodutos = $pprodutos->fseekfresh();
+
+        return view('pdv.pdv' ,compact('grupo', 'frprodutos'));
+
+        //return redirect()->route('show', ['id' => 1]);
+        //return redirect()->route('profile', ['id' => 1]);
+        //return redirect()->route('profile', [$user]);
+
+
+        //$flight = Flight::where('number', 'FR 900')->first();
+
+        //$freshFlight = $flight->fresh();
     }
 
     /**
@@ -63,6 +78,7 @@ class PdvController extends Controller
     public function show(Pdv $pdv)
     {
         $_POST['valorescolhido'] = valor;
+
     }
 
     /**
