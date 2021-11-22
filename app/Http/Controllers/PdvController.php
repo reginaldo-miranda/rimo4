@@ -40,7 +40,7 @@ class PdvController extends Controller
     public function create()
     {   
         $produtos = produto::get();
-        $grupo = grupo::get();
+        $grupo    = grupo::get();
       //  $escolha = $_POST[$valorescolhido];
 
        // $pprodutos = produto::where('grupo','escolha')->get();
@@ -56,6 +56,28 @@ class PdvController extends Controller
         //$flight = Flight::where('number', 'FR 900')->first();
 
         //$freshFlight = $flight->fresh();
+
+/* -------------------exemplo ----------------------*/
+$produtos = Produto::when(Request::input('produto'),function($query){
+    $query->where('nome_produto',Request::input('produto'));
+})
+->when(Request::input('preco'),function($query){
+    $query->where('preco_produto',Request::input('preco'));
+})
+->when(Request::input('categoria'), function($query){
+    $query->whereHas('categoria', function ($query) {
+        $query->where('nome_categoria',Request::input('categoria'));
+    });
+})->get();
+
+
+/*----------------------------------*/
+
+
+
+
+
+
     }
 
     /**
