@@ -86,13 +86,13 @@ $produtos = Produto::when(Request::input('produto'),function($query){
      * @param  \App\Models\Pdv  $pdv
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($pdv)
     {
         //$produtos = produto::get();
 
-       
-        $produtos =produto::where('grupo', 2)->get();
-
+        
+        $produtos =produto::where('grupo', $pdv)->get();
+        
 
 
         $grupo    = grupo::get();
