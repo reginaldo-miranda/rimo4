@@ -23,11 +23,11 @@ Route::get('/', function () {
 /*------------------------ PDV -------------------------------------*/
 
 Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
-Route::get('/selecionarpdv', [PdvController::class,'show'])->name('selecionarpdv');
+//Route::get('/selecionarpdv', [PdvController::class,'show'])->name('selecionarpdv');
 
 // Route::post('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
  
-//Route::get('selecionarpdv', [PdvController::class,'show'])->name('selecionarpdv');
+Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
 /*---------------------------------------------------------------------
 
 

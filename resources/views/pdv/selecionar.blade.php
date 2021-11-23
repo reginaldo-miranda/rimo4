@@ -21,7 +21,8 @@
         @endforeach 
     
     </select>
-    <form action="{{ route('selecionarpdv')}} " method="get">
+    <form action="{{ route('selecionarpdv', $grup->id )}} " method="get">
+    
       @csrf
        <input type="text" id="inputselect" name="grupo"/>
      </form>  

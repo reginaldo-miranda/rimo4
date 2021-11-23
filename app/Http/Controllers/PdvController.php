@@ -86,16 +86,16 @@ $produtos = Produto::when(Request::input('produto'),function($query){
      * @param  \App\Models\Pdv  $pdv
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $pdv)
+    public function show($id)
     {
-        //$produtos = produto::get();
+        $prod = produto::find($id);
 
+      // dd($id);
+        $produtos =produto::where('grupo', $id);
         
-        $produtos =produto::where('produto', $pdv);
+       // $grupo    = grupo::get();
         
-        $grupo    = grupo::get();
-        dd($pdv);
-        return view('pdv.listarProdPdv' ,compact('produtos', 'grupo'));
+        return view('pdv.listarProdPdv' ,compact('produtos'));
 
     }
 
