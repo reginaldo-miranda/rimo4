@@ -97,9 +97,10 @@ $produtos = Produto::when(Request::input('produto'),function($query){
      * @param  \App\Models\Pdv  $pdv
      * @return \Illuminate\Http\Response
      */
-    public function show(Pdv $pdv)
+    public function show(Request $pdv)
     {
-        $_POST['valorescolhido'] = valor;
+        dd($pdv->id);
+      return 'estou aqui na show';
 
     }
 

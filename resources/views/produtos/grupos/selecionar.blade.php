@@ -5,7 +5,7 @@
   function escol(valor){
     
     document.getElementById("inputselect").value=valor;
-    $valorescolhido = $_POST['valor'];
+   
   }
 </script>
 
@@ -21,9 +21,10 @@
         @endforeach 
     
     </select>
-
- <input type="hidden" id="inputselect" name="grupo"/>
-
+    <form action="{{ route('prod_grupo')}} " method="post">
+      @csrf
+       <input type="hidden" id="inputselect" name="grupo"/>
+     </form>  
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

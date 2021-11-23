@@ -165,18 +165,20 @@ header{
 </style>
 
 <header>
+
    <nav class="menuh">
+       
      <div class="row">
         <ul>
             <li><a href="#">Venda</a>
-
+                <li><a href="{{route('pdv')}}">Pdv</a></li>
                 <ul>
-                    <li><a href="{{route('pdv')}}">Pdv</a></li>
+                   
                     <li><a href="#">Pedido</a>
-                        <ul>
+                       {{--  <ul>  --}}
                             <li><a href="#">Pedido Venda</a></li>
                             <li><a href="#">Orcamento</a></li>
-                        </ul>
+                        {{-- </ul>  --}}
                     </li>
 
                 </ul>
@@ -185,8 +187,9 @@ header{
             <li><a href="#" >P Compra</a></li>
             <li><a href="#" >Troca e devolução</a></li>
             <li><a href="#" >Consignação</a></li>
-        </ul>
+        </ul>    
      </div> 
+    
    </nav>
 
 

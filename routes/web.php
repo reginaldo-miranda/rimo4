@@ -23,8 +23,11 @@ Route::get('/', function () {
 /*------------------------ PDV -------------------------------------*/
 
 Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
+//Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
 
-
+Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
+ 
+//Route::get('selecionarpdv', ["as" => 'selecionarpdv', 'id' => PdvController::class,' show']);
 /*---------------------------------------------------------------------
 
 
