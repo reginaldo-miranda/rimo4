@@ -25,9 +25,9 @@ Route::get('/', function () {
 Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
 //Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
 
-Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
+// Route::post('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
  
-//Route::get('selecionarpdv', ["as" => 'selecionarpdv', 'id' => PdvController::class,' show']);
+Route::get('selecionarpdv', [PdvController::class,'show'])->name('selecionarpdv');
 /*---------------------------------------------------------------------
 
 

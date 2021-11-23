@@ -16,7 +16,7 @@ class PdvController extends Controller
      */
     public $produtos;
     public $grupo;
-    public $valorescolhido, $escolha;
+    public $valorescolhido, $escolha, $teste;
 
 
    /* public function __constuct(){
@@ -39,25 +39,14 @@ class PdvController extends Controller
      */
     public function create()
     {   
-        $produtos = produto::get();
-        $grupo    = grupo::get();
-      //  $escolha = $_POST[$valorescolhido];
-
-       // $pprodutos = produto::where('grupo','escolha')->get();
-       // $frprodutos = $pprodutos->fseekfresh();
-
-        return view('pdv.pdv' ,compact('grupo', 'produtos'));
-
-        //return redirect()->route('show', ['id' => 1]);
-        //return redirect()->route('profile', ['id' => 1]);
-        //return redirect()->route('profile', [$user]);
+       $produtos = produto::get();
+       $grupo    = grupo::get();
+     
+      return view('pdv.pdv',  compact('grupo', 'produtos'));
+  //    return redirect()->route('selecionarpdv');
 
 
-        //$flight = Flight::where('number', 'FR 900')->first();
-
-        //$freshFlight = $flight->fresh();
-
-/* -------------------exemplo ----------------------*/
+/* -------------------exemplo ----------------------
 $produtos = Produto::when(Request::input('produto'),function($query){
     $query->where('nome_produto',Request::input('produto'));
 })
@@ -71,7 +60,7 @@ $produtos = Produto::when(Request::input('produto'),function($query){
 })->get();
 
 
-/*----------------------------------*/
+----------------------------------*/
 
 
 
@@ -97,10 +86,18 @@ $produtos = Produto::when(Request::input('produto'),function($query){
      * @param  \App\Models\Pdv  $pdv
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $pdv)
+    public function show()
     {
-        dd($pdv->id);
-      return 'estou aqui na show';
+        //$produtos = produto::get();
+
+       
+        $produtos =produto::where('grupo', 2)->get();
+
+
+
+        $grupo    = grupo::get();
+        //dd($produtos);
+        return view('pdv.listarProdPdv' ,compact('produtos', 'grupo'));
 
     }
 

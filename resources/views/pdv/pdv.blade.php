@@ -9,14 +9,13 @@
       <input type="text" name="nome"    id="nome" >
    </div><br>
 
-   <div>
+ {{--   <div>
    Pesquisar:<input type="text" name="search" id="search" >
-   </div><br>
+   </div> --}}
+   <br>
 
 
-  @include('pdv.selecionar')
+  @include('pdv.selecionar') 
  
- @foreach($produtos as $prod)
-   {{ $prod->descricao}}
- @endforeach 
+ {{--  @include('pdv.listarProdPdv')--}}
 </div>
