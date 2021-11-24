@@ -7,6 +7,7 @@
     document.getElementById("inputselect").value=valor;
    
   }
+ 
 </script>
 
 <div class="form-group">
@@ -16,11 +17,11 @@
           <option value="{{$grup->id}}">{{$grup->descricao}}</option>
        @endforeach 
      
-    </select>
+    </select><br>
    
    <form action="{{ route('selecionarpdv')}}" method="post">
-      @csrf
-        <input type="text" id="inputselect" name="grupo" />
+        @csrf
+        <input type="submit" id="inputselect" name="grupo" />
      </form>
 </div>
 

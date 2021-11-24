@@ -31,13 +31,9 @@
             <label>Qtde</label>
         </div>
         <input type="text" name="qde">
-    </div>
-    
-
+    </div><br>
+  
     <div>
-        <div>
-            <label>Enviar</label>
-        </div>
-        <input type="submit" name="Enviar">
+         <input type="submit" name="Enviar">
     </div>
 </form>

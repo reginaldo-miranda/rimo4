@@ -11,12 +11,10 @@
     <div>
         <label>Desconto</label>
     </div>
-    <input type="text" name="desconto">
-
     <div>
-        <div>
-            <label>Enviar</label>
-        </div>
+        <input type="text" name="desconto">
+    </div><br>
+    <div>
         <input type="submit" name="Enviar">
     </div>
 </form>

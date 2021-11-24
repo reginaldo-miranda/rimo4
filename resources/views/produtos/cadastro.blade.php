@@ -1,5 +1,5 @@
 @extends('layout')
-<h1>Cadastro de Produtos</h1>
+<h3>Cadastro de Produtos</h3>
 
 @include('produtos.inputProdutos')
 

@@ -1,3 +1,3 @@
 @extends('layout')
-<h1>Cadastro de Grupos</h1>
+<h3>Cadastro de Grupos</h3>
 @include('produtos.grupos.inputGrupos')

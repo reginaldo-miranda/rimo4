@@ -90,8 +90,9 @@ $produtos = Produto::when(Request::input('produto'),function($query){
        
         $produtos = produto::get()->where('grupo', '=', $dados);
     
-    
-        return view('pdv.listarProdPdv' ,compact('produtos'));
+       
+       return view('pdv.listarProdPdv' ,compact('produtos'));
+       
     }
 
     /**
@@ -126,5 +127,9 @@ $produtos = Produto::when(Request::input('produto'),function($query){
     public function destroy(Pdv $pdv)
     {
         //
+    }
+    public function escolherprod(){
+
+        return view('pdv.listarProdEscolhido');
     }
 }

@@ -27,7 +27,7 @@ Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
 
  Route::post('selecionarpdv', [PdvController::class,'show'])->name('selecionarpdv');
  
- //Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
+ Route::get('prodescolhido', [PdvController::class,'escolherprod'])->name('prodescolhido');
 /*---------------------------------------------------------------------
 
 
