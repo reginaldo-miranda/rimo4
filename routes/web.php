@@ -25,9 +25,9 @@ Route::get('/', function () {
 Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
 //Route::get('/selecionarpdv', [PdvController::class,'show'])->name('selecionarpdv');
 
-// Route::post('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
+ Route::post('selecionarpdv', [PdvController::class,'show'])->name('selecionarpdv');
  
-Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
+ //Route::get('selecionarpdv/{id}', [PdvController::class,'show'])->name('selecionarpdv');
 /*---------------------------------------------------------------------
 
 
@@ -46,8 +46,6 @@ Route::get('/cadastro' , function() {
 
 //Route::post('produtos', [App\Http\Controllers\ProdutoController::class,'store'])->name('prod_cadastro');
 Route::post('produtos', [ProdutoController::class,'store'])->name('prod_cadastro');
-
-
 
 Route::get('listarTudo', [ProdutoController::class, 'index'])->name('listarTudo');
 

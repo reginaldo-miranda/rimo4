@@ -6,6 +6,7 @@ use App\Models\Pdv;
 use App\Models\Grupo;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use DB;
 
 class PdvController extends Controller
 {
@@ -19,12 +20,12 @@ class PdvController extends Controller
     public $valorescolhido, $escolha, $teste;
 
 
-   /* public function __constuct(){
+  /* public function __constuct(){
 
       $grupo = grupo::get();
       return view('produtos.grupos.selecionar', compact('grupo'));
-    }*/
-
+    }
+*/
 
 
     public function index()
@@ -61,13 +62,7 @@ $produtos = Produto::when(Request::input('produto'),function($query){
 
 
 ----------------------------------*/
-
-
-
-
-
-
-    }
+ }
 
     /**
      * Store a newly created resource in storage.
@@ -86,17 +81,17 @@ $produtos = Produto::when(Request::input('produto'),function($query){
      * @param  \App\Models\Pdv  $pdv
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $prod = produto::find($id);
-
-      // dd($id);
-        $produtos =produto::where('grupo', $id);
-        
-       // $grupo    = grupo::get();
-        
+    public function show(request $request)
+     {
+ 
+       // $dados = $request->all();
+       $dados = $request->grupo;
+       // dd($dados);
+       
+        $produtos = produto::get()->where('grupo', '=', $dados);
+    
+    
         return view('pdv.listarProdPdv' ,compact('produtos'));
-
     }
 
     /**
