@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pdv;
 use App\Models\Grupo;
 use App\Models\Produto;
+use App\Models\pdvitens;
 use Illuminate\Http\Request;
 use DB;
 
@@ -42,8 +43,14 @@ class PdvController extends Controller
     {   
        $produtos = produto::get();
        $grupo    = grupo::get();
+      // $pdvitens = pdvitens::get();
+
+       $pdvitens = DB::table('pdvitens')
+       ->select('pdvitens.*', 'produtos.descricao')
+       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
+
      
-      return view('pdv.pdv',  compact('grupo', 'produtos'));
+      return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens'));
   //    return redirect()->route('selecionarpdv');
 
 
@@ -88,7 +95,7 @@ $produtos = Produto::when(Request::input('produto'),function($query){
        $dados = $request->grupo;
        // dd($dados);
        
-        $produtos = produto::get()->where('grupo', '=', $dados);
+      $produtos = produto::get()->where('grupo', '=', $dados);
     
        
        return view('pdv.listarProdPdv' ,compact('produtos'));
@@ -128,8 +135,5 @@ $produtos = Produto::when(Request::input('produto'),function($query){
     {
         //
     }
-    public function escolherprod(){
-
-        return view('pdv.listarProdEscolhido');
-    }
+   
 }

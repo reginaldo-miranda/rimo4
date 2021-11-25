@@ -11,12 +11,10 @@
             <td>{{ $prod->descricao }}</td>
             <td>{{ number_format($prod->pvenda, 2, ',', '.') }}</td>
             <td>
+             qde:<input type="type" id="inputqde" name="qde">
               @csrf
-                <a href="{{ route('prodescolhido') }}">
-                
-                  <button id="btneditar" >
-                       Escolher
-                   </button> 
+                <a href="{{ route('prodescolhido', $prod->id) }}">
+                   <button id="btneditar" >Escolher</button> 
                 </a> 
                 
             </td>

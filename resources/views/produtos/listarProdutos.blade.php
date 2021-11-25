@@ -14,18 +14,12 @@
             <td>
               @csrf
                 <a href="{{ route('show', $prod->id) }}">
-                
-                  <button id="btneditar" >
-                       Editar
-                   </button> 
+                   <button id="btneditar" >Editar</button> 
                 </a> 
-                
-            </td>
-            <td>
-              <a href="{{ route('apagar', $prod->id) }}">
-                  <button id="btndeletar" >
-                       Deletar
-                   </button> 
+             </td>
+             <td>
+                <a href="{{ route('apagar', $prod->id) }}">
+                  <button id="btndeletar" >Deletar</button> 
                 </a> 
             {{-- 
                 <form action="{{ route('apagar', $prod->id) }}" method="post">

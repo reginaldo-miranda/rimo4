@@ -1,23 +1,25 @@
-@extends('layout')
-<h3>produtos escolhidos aqui</h3>
+  @extends('layout')
 
-@foreach ($pdvitens as $prod)
+<h1>Listagem de Produtos a escolher</h1>
+
+@foreach ($produtos as $prod)
   <div>
         <tr>
                  
             <td>{{ $prod->id }}</td>
            {{--  <td>{{ $prod->grupo}}</td>  --}}
             <td>{{ $prod->descricao }}</td>
-            <td>{{ $prod->qde}}</td>
-            <td>{{ number_format($prod->vunit, 2, ',', '.') }}</td>
+            <td>{{ number_format($prod->pvenda, 2, ',', '.') }}</td>
+           
             <td>
-            
-               @csrf
-                <a href="{{ route('acrescentar', $prod->id) }}">
-                   <button id="btneditar" >somar</button> 
+              @csrf
+                <a href="{{ route('prodescolhido', $prod->id) }}">
+                   <button id="btneditar" >Escolher</button> 
+                   <input type="text" >
                 </a> 
                 
             </td>
+           
         {{--     <td>
               <a href="{{ route('apagar', $prod->id) }}">
                   <button id="btndeletar" >
@@ -37,3 +39,5 @@
   </div>
   
 @endforeach
+
+{{-- {{ $produtos->links() }}--}}

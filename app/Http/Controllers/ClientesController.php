@@ -37,7 +37,7 @@ class ClientesController extends Controller
     public function store(Request $request)
     {
         $clientes = clientes::create($request->all());
-        return view('pdv.pdv');
+        return redirect()->route('listarClientes');
     }
 
     /**
@@ -48,7 +48,7 @@ class ClientesController extends Controller
      */
     public function show(ClientesController $clientesController)
     {
-        //
+      //
     }
 
     /**
