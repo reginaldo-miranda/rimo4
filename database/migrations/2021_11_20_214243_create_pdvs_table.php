@@ -17,6 +17,7 @@ class CreatePdvsTable extends Migration
             $table->id();
             $table->integer('id_clientes');
             $table->double('vtotal');
+            $table->string('status', 1);
             $table->timestamps();
         });
     }

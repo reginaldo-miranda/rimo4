@@ -171,7 +171,7 @@ header{
      <div class="row">
         <ul>
             <li><a href="#">Venda</a>
-                <li><a href="{{route('pdv')}}">Pdv</a></li>
+                <li><a href="{{route('abrirVenda')}}">Pdv</a></li>
                 <ul>
                    
                     <li><a href="#">Pedido</a>

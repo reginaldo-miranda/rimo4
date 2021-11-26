@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Pdv extends Model
 {
     use HasFactory;
-    protected $fillable = [' id_clientes','vtotal'];
+    protected $fillable = [' id_clientes','vtotal', 'status'];
 }

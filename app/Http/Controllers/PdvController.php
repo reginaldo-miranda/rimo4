@@ -6,6 +6,7 @@ use App\Models\Pdv;
 use App\Models\Grupo;
 use App\Models\Produto;
 use App\Models\pdvitens;
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 use DB;
 
@@ -31,7 +32,22 @@ class PdvController extends Controller
 
     public function index()
     {
-        //
+       // $pdv = pdv::get();
+     //   return view('pdv.abrirVenda' , compact('pdv'));
+
+        $pdv = DB::table('pdvs')
+        ->select('pdvs.*', 'clientes.nome')
+        ->join('clientes', 'clientes.id', '=', 'pdvs.id_clientes')->get();
+       //dd($pdv);
+/*
+       $pdvitens = DB::table('pdvitens')
+       ->select('pdvitens.*', 'produtos.descricao')
+       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
+      // dd($pdvitens); */
+
+
+
+       return view('pdv.abrirVenda' , compact('pdv'));
     }
 
     /**

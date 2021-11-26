@@ -11,30 +11,26 @@
             <td>{{ $clie->nome }}</td>
             <td>{{ $clie->fone1 }}</td>
            
-            <td>
+           <td>
               @csrf
                 <a href="#">
-                
-                  <button id="btneditar" >
-                       Editar
-                   </button> 
+                  <button id="btneditar" >Editar</button> 
                 </a> 
-                
             </td>
             <td>
-              <a href="#">
-                  <button id="btndeletar" >
-                       Deletar
-                   </button> 
+                <a href="#">
+                   <button id="btndeletar" >Deletar</button> 
                 </a> 
-            {{-- 
-                <form action="{{ route('apagar', $clie->id) }}" method="post">
-                   @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-        
-                   <button id="btndeletar" type="submit">deletar</button>
-                </form> --}}
             </td>
+            <td>    
+                <form action="{{ route('buscarCliente' , $clie->id ) }}" method="get">
+                   @csrf
+                   {{--   <input type="hidden" name="_method" value="DELETE"> --}}
+        
+                   <button id="btndeletar" type="submit">Selecionar</button>
+                 </form> 
+                 
+             </td>
          </tr>
    
   </div>

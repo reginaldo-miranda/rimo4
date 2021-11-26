@@ -84,4 +84,10 @@ class ClientesController extends Controller
     {
         //
     }
+
+    public function buscarCliente($id)
+    {
+        dd($id);
+        return 'buscar cliente';
+    }
 }
