@@ -33,6 +33,8 @@ Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
 
  Route::get('abrirvenda' , [PdvController::class, 'index' ] )->name('abrirVenda');
 
+ Route::post('gravar' ,  [PdvController::class, 'store'])->name('gravar.store');
+
  /*---------------------------------------------------------------------
 
 

@@ -50,7 +50,7 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-      //  dd($request->all());
+      // dd($request->all());
 
         $produtos = produto::create($request->all());
 

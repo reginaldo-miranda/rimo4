@@ -95,7 +95,12 @@ $produtos = Produto::when(Request::input('produto'),function($query){
      */
     public function store(Request $request)
     {
-        //
+
+      // dd($request->all());
+       $pdv = pdv::create($request->all());
+
+        return redirect()->route('abrirVenda');
+       // return 'aqui na store';
     }
 
     /**

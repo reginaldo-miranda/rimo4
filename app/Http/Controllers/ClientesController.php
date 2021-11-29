@@ -87,7 +87,15 @@ class ClientesController extends Controller
 
     public function buscarCliente($id)
     {
-        dd($id);
-        return 'buscar cliente';
+    //    dd($id);
+    $clientes = clientes::find($id);
+
+    if(!$clientes->id){
+        return 'nao e cliente'; //redirect()-route('listarTudo');
+    };
+
+     //  
+      // dd($clientes->nome, $clientes->id);
+        return view('pdv.inserirNovaVenda', compact('clientes'));
     }
 }

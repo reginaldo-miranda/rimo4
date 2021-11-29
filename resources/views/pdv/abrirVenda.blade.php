@@ -5,7 +5,7 @@
   <label>Iniciar Venda</label>
 </div>
 <div>
-  <input type="text">
+ cliente: <input type="text">
   <div>
       <a href={{'listarClientes'}}>iniciar </a>
   </div>
