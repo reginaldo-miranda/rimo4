@@ -171,7 +171,7 @@ header{
      <div class="row">
         <ul>
             <li><a href="#">Venda</a>
-                <li><a href="{{route('abrirVenda')}}">Pdv</a></li>
+                <li><a href="{{route('abrirVenda.index')}}">Pdv</a></li>
                 <ul>
                    
                     <li><a href="#">Pedido</a>
@@ -204,7 +204,7 @@ header{
             <li><a class="clientes" href="#">Clientes</a>
                <ul class="itemclientes">
                     <li><a href="{{ route('clientes')}}">Cadastro</a></li>
-                    <li><a href="{{ route('listarClientes') }}">Listar</a></li>
+                    <li><a href="{{ route('listarClientes.index') }}">Listar</a></li>
                </ul>
             </li>  
             <li><a href="#">Fornecedores</a></li>

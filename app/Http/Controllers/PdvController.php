@@ -57,9 +57,10 @@ class PdvController extends Controller
      */
     public function create()
     {   
+        
        $produtos = produto::get();
        $grupo    = grupo::get();
-      // $pdvitens = pdvitens::get();
+       //$pdvitens = pdvitens::get();
 
        $pdvitens = DB::table('pdvitens')
        ->select('pdvitens.*', 'produtos.descricao')
@@ -69,22 +70,6 @@ class PdvController extends Controller
       return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens'));
   //    return redirect()->route('selecionarpdv');
 
-
-/* -------------------exemplo ----------------------
-$produtos = Produto::when(Request::input('produto'),function($query){
-    $query->where('nome_produto',Request::input('produto'));
-})
-->when(Request::input('preco'),function($query){
-    $query->where('preco_produto',Request::input('preco'));
-})
-->when(Request::input('categoria'), function($query){
-    $query->whereHas('categoria', function ($query) {
-        $query->where('nome_categoria',Request::input('categoria'));
-    });
-})->get();
-
-
-----------------------------------*/
  }
 
     /**
@@ -99,7 +84,7 @@ $produtos = Produto::when(Request::input('produto'),function($query){
       // dd($request->all());
        $pdv = pdv::create($request->all());
 
-        return redirect()->route('abrirVenda');
+        return redirect()->route('abrirVenda.index');
        // return 'aqui na store';
     }
 
@@ -158,3 +143,22 @@ $produtos = Produto::when(Request::input('produto'),function($query){
     }
    
 }
+
+
+
+
+/* -------------------exemplo ----------------------
+$produtos = Produto::when(Request::input('produto'),function($query){
+    $query->where('nome_produto',Request::input('produto'));
+})
+->when(Request::input('preco'),function($query){
+    $query->where('preco_produto',Request::input('preco'));
+})
+->when(Request::input('categoria'), function($query){
+    $query->whereHas('categoria', function ($query) {
+        $query->where('nome_categoria',Request::input('categoria'));
+    });
+})->get();
+
+
+----------------------------------*/

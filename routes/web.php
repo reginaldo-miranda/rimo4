@@ -31,7 +31,7 @@ Route::get('pdv', [PdvController::class, 'create'])->name('pdv');
 
  Route::get('acrescentar' , [PdvitensController::class , 'acrescentar'])->name('acrescentar');
 
- Route::get('abrirvenda' , [PdvController::class, 'index' ] )->name('abrirVenda');
+ Route::get('abrirvenda.index' , [PdvController::class, 'index' ] )->name('abrirVenda.index');
 
  Route::post('gravar' ,  [PdvController::class, 'store'])->name('gravar.store');
 
@@ -83,7 +83,7 @@ Route::get('selecionar',[GrupoController::class, 'selecionar'])->name('seleciona
 Route::get('clientes',[ClientesController::class, 'create'])->name('clientes');
 
 Route::post('clientes-store', [ClientesController::class, 'store'])->name('clientes-store');
-Route::get('listarClientes',[ClientesController::class, 'index' ])->name('listarClientes');
+Route::get('listarClientes.index',[ClientesController::class, 'index' ])->name('listarClientes.index');
 Route::get('buscarCliente/{id}' ,[ClientesController::class, 'buscarCliente'])->name('buscarCliente');
 
 /*-----------------------------------------------------------------------*/
