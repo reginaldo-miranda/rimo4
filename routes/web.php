@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Routing\Router;
 
 //use App\Http\Controllers;
 
@@ -85,5 +86,15 @@ Route::get('clientes',[ClientesController::class, 'create'])->name('clientes');
 Route::post('clientes-store', [ClientesController::class, 'store'])->name('clientes-store');
 Route::get('listarClientes.index',[ClientesController::class, 'index' ])->name('listarClientes.index');
 Route::get('buscarCliente/{id}' ,[ClientesController::class, 'buscarCliente'])->name('buscarCliente');
+//Route::resource('Clientes', 'App\Http\ControllersClientesController');
 
+/*Route::resource('Clientes', 'ClientesController::class');
+https://www.youtube.com/watch?v=tWI-x7gCwYg&t=142s link de rotas
+
+Route::resource([
+   'Clientes' => 'ClientesController::class',
+   'Grupo'    => 'GrupoController::class',
+   'Produtos' => 'ProdutoController::class'
+
+]);
 /*-----------------------------------------------------------------------*/
