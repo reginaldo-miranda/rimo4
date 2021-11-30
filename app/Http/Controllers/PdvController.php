@@ -97,14 +97,17 @@ class PdvController extends Controller
     public function show(request $request)
      {
  
-       // $dados = $request->all();
+      $dados = $request->all();
+     // dd($dados);
        $dados = $request->grupo;
        // dd($dados);
        
-      $produtos = produto::get()->where('grupo', '=', $dados);
-    
+     $produtos = produto::get()->where('grupo', '=', $dados);
+    // dd($produtos);
        
-       return view('pdv.listarProdPdv' ,compact('produtos'));
+      return view('pdv.listarProdPdv' ,compact('produtos'));
+
+     //  return view('pdv.listarProdPdv' ,compact('produtos'));
        
     }
 

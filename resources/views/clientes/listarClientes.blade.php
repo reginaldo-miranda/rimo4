@@ -13,7 +13,7 @@
            
            <td>
               @csrf
-                <a href="#">
+                <a href="{{ route('Clientes.edit', $clie->id) }}">
                   <button id="btneditar" >Editar</button> 
                 </a> 
             </td>

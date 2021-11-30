@@ -59,7 +59,7 @@ class ClientesController extends Controller
      */
     public function edit(ClientesController $clientesController)
     {
-        //
+        return 'estou na edit clientes';
     }
 
     /**

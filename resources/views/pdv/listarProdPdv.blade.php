@@ -13,7 +13,7 @@
             <td>
              qde:<input type="type" id="inputqde" name="qde">
               @csrf
-                <a href="{{ route('prodescolhido', $prod->id) }}">
+                <a href="{{ route('prodescolhido', $prod->id) }}"> {{--pdvitens --}}
                    <button id="btneditar" >Escolher</button> 
                 </a> 
                 

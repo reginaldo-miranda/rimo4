@@ -21,7 +21,7 @@
         @endforeach 
     
     </select>
-    <form action="{{ route('prod_grupo')}} " method="post">
+    <form action="{{ route('grupo.store')}} " method="post">
       @csrf
        <input type="hidden" id="inputselect" name="grupo"/>
      </form>  

@@ -18,8 +18,8 @@
        @endforeach 
      
     </select><br>
-   
-   <form action="{{ route('selecionarpdv')}}" method="post">
+  {{-- funcionando  <form action="{{ route('selecionarpdv')}}" method="post">  --}}
+     <form action="{{ route('pdv.show', $grup->id)}}"> 
         @csrf
         <input type="submit" id="inputselect" name="grupo" />
      </form>

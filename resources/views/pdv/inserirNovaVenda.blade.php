@@ -10,7 +10,7 @@
 <div>
  
 
-<form action="{{ route('gravar.store') }}" method="post">
+<form action="{{ route('pdv.store') }}" method="post">
     @csrf
     <input type="text" name"nome" value="{{ $clientes->nome }}">     
     <input type="text" name="id_clientes" value="{{$clientes->id}}">

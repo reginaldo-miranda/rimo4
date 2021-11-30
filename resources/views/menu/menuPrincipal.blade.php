@@ -171,7 +171,7 @@ header{
      <div class="row">
         <ul>
             <li><a href="#">Venda</a>
-                <li><a href="{{route('abrirVenda.index')}}">Pdv</a></li>
+                <li><a href="{{route('pdv.index')}}">Pdv</a></li>
                 <ul>
                    
                     <li><a href="#">Pedido</a>
@@ -203,8 +203,8 @@ header{
 
             <li><a class="clientes" href="#">Clientes</a>
                <ul class="itemclientes">
-                    <li><a href="{{ route('clientes')}}">Cadastro</a></li>
-                    <li><a href="{{ route('listarClientes.index') }}">Listar</a></li>
+                    <li><a href="{{ route('Clientes.create')}}">Cadastro</a></li>
+                    <li><a href="{{ route('Clientes.index') }}">Listar</a></li>
                </ul>
             </li>  
             <li><a href="#">Fornecedores</a></li>
@@ -214,10 +214,10 @@ header{
                   {{--   <li><a href="{{ route('produtos')}}">Produtos</a></li> --}}
                     <li><a href="{{ route('selecionar')}}">Produtos</a></li>
                    {{--  <li><a href="#">Grupo</a></li> --}}
-                    <li><a href="{{ route('grupo')}}">Grupo</a></li>
+                    <li><a href="{{ route('grupov')}}">Grupo</a></li>
                     <li><a href="#">Tipos</a></li>
-                    <li><a href="{{ route('listarTudo')}}">Listar Produtos</a></li>
-                    <li><a href="{{ route('listar_grupo')}}">Listar Grupos</a> </li>
+                    <li><a href="{{ route('produtos.index')}}">Listar Produtos</a></li>
+                    <li><a href="{{ route('grupo.index')}}">Listar Grupos</a> </li>
                 </ul>
             </li>
             <li><a href="#">Usarios</a></li>

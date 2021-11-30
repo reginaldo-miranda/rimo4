@@ -56,7 +56,7 @@ class ProdutoController extends Controller
 
         // return view('produtos.listarProdutos');
          
-         return redirect()->route('listarTudo');
+         return redirect()->route('produtos.index');
     }
 
     /**
@@ -83,7 +83,7 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-       dd($id);
+       return 'Estou na edit produtos '. $id;
     }
 
     /**
@@ -107,9 +107,9 @@ class ProdutoController extends Controller
     public function destroy($id)
     {
 
-      // dd($id);
+       dd($id);
        if(!$produtos = produto::find($id)){
-            return redirect()-route('listarTudo');
+            return redirect()-route('produtos.show');
         };
           $produtos->delete();
       

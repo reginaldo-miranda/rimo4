@@ -13,7 +13,7 @@
             <td>
             
                @csrf
-                <a href="{{ route('acrescentar', $prod->id) }}">
+                <a href="{{ route('acrescentar', $prod->id) }}">  {{{-- pdvitens--}}}
                    <button id="btneditar" >somar</button> 
                 </a> 
                 

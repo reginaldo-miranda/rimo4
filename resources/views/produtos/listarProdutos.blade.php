@@ -13,12 +13,12 @@
             <td>{{ number_format($prod->pvenda, 2, ',', '.') }}</td>
             <td>
               @csrf
-                <a href="{{ route('show', $prod->id) }}">
+                <a href="{{ route('produtos.edit', $prod->id) }}">
                    <button id="btneditar" >Editar</button> 
                 </a> 
              </td>
              <td>
-                <a href="{{ route('apagar', $prod->id) }}">
+                <a href="{{ route('produtos.destroy', $prod->id) }}">
                   <button id="btndeletar" >Deletar</button> 
                 </a> 
             {{-- 

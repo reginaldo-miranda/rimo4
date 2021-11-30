@@ -7,7 +7,8 @@
 <div>
  cliente: <input type="text">
   <div>
-      <a href={{'listarClientes.index'}}>iniciar </a>
+      {{-- anterior <a href={{'listarClientes.index'}}>iniciar </a> --}}
+      <a href={{ route('Clientes.index')}}>iniciar </a>
   </div>
 </div><br>
 
@@ -24,7 +25,7 @@
             <td>
             
                @csrf
-                <a href="{{ route('pdv', $prod->id) }}">
+                <a href="{{ route('pdv.create', $prod->id) }}">
                    <button id="btneditar" >Inseir</button> 
                 </a> 
                 

@@ -42,7 +42,7 @@ class GrupoController extends Controller
     {
         $grupos = grupo::create($request->all());
 
-        return redirect()->route('listar_grupo');
+        return redirect()->route('grupo.index');
     }
 
     /**
@@ -53,7 +53,7 @@ class GrupoController extends Controller
      */
     public function show(Grupo $grupo)
     {
-        //
+        return 'estou na show grupo';
     }
 
     /**
@@ -62,9 +62,9 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grupo $grupo)
+    public function edit($id)
     {
-        //
+        return 'estou na edit grupo'.$id;
     }
 
     /**
@@ -85,9 +85,11 @@ class GrupoController extends Controller
      * @param  \App\Models\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grupo $grupo)
-    {
-        //
+
+    public function destroy($id)
+    {   
+        dd($id);
+        return 'estou da destroy grupo';
     }
 
     public function selecionar(){

@@ -2,7 +2,7 @@
 
 <h1>Listagem de Produtos a escolher</h1>
 
-@foreach ($produtos as $prod)
+@foreach ($dados as $prod)
   <div>
         <tr>
                  
@@ -13,7 +13,7 @@
            
             <td>
               @csrf
-                <a href="{{ route('prodescolhido', $prod->id) }}">
+                <a href="{{ route('prodescolhido', $prod->id) }}"> {{-- pdvitens --}}
                    <button id="btneditar" >Escolher</button> 
                    <input type="text" >
                 </a> 

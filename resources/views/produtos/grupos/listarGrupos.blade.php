@@ -10,20 +10,16 @@
             <td>{{ $grup->desconto }}</td>
             <td>{{ $grup->descricao }}</td>
             
-              @csrf
-                <a href="{{ route('show', $grup->id) }}">
+            {{--   @csrf --}}
+                <a href="{{ route('grupo.edit', $grup->id) }}">
                 
-                  <button id="btneditar" >
-                       Editar
-                   </button> 
+                  <button id="btneditar" >Editar</button> 
                 </a> 
                 
             </td>
             <td>
-              <a href=""{{ route('apagar', $grup->id) }}">
-                  <button id="btndeletar" >
-                       Deletar
-                   </button> 
+              <a href="{{ route('grupo.destroy', $grup->id) }}">
+                  <button id="btndeletar" >Deletar</button> 
                 </a> 
             {{-- 
                 <form action="{{ route('apagar', $prod->id) }}" method="post">

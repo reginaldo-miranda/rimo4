@@ -1,5 +1,5 @@
 
-<form action="{{ route('prod_grupo')}} " method="post">
+<form action="{{ route('grupo.store')}} " method="post">
     @csrf
     <div>
         <div>
