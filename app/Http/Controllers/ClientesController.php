@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers;
+//use App\Http\Controllers\Grupo;
 use App\Models\Clientes;
+use App\models\Grupo;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 
 class ClientesController extends Controller
 {
@@ -37,7 +41,7 @@ class ClientesController extends Controller
     public function store(Request $request)
     {
         $clientes = clientes::create($request->all());
-        return redirect()->route('listarClientes');
+        return redirect()->route('Clientes.index');
     }
 
     /**
@@ -97,5 +101,18 @@ class ClientesController extends Controller
      //  
       // dd($clientes->nome, $clientes->id);
         return view('pdv.inserirNovaVenda', compact('clientes'));
+    }
+
+    // buscar o cliente ja cadastrado para inserir produtos na venda
+    public function buscarClientesPdv(Request $request, $id){
+
+   
+        //$dados = clientes::where('id',$aa )->first();
+
+        $dados = clientes::get()->where('id', '=' , $id );
+        $grupo = grupo::get();
+            
+       return view('pdv.pdv' , compact('dados', 'grupo') );
+
     }
 }

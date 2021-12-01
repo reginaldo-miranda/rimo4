@@ -13,7 +13,8 @@
            
             <td>
               @csrf
-                <a href="{{ route('prodescolhido', $prod->id) }}"> {{-- pdvitens --}}
+                  <a href="{{ route('prodescolhido', $prod->id) }}"> {{-- pdvitens --}}
+               
                    <button id="btneditar" >Escolher</button> 
                    <input type="text" >
                 </a> 

@@ -39,10 +39,10 @@ Route::get('/', function () {
 
  /*--------------------------pdv itens ------------------------------*/
 
- Route::get('prodescolhido/{id}', [PdvitensController::class,'escolherprod'])->name('prodescolhido');
- Route::get('acrescentar' , [PdvitensController::class , 'acrescentar'])->name('acrescentar');
+  Route::get('prodescolhido/{id}', [PdvitensController::class,'escolherprod'])->name('prodescolhido');
+  Route::get('acrescentar' , [PdvitensController::class , 'acrescentar'])->name('acrescentar');
 
-
+ Route::resource('pdvitens', PdvitensController::class);
  /*--------------------------- fim pdv itens ----------------------------*/
 
  /* ------------------------ produtos --------------------------------*/
@@ -88,6 +88,7 @@ Route::get('buscarCliente/{id}' ,[ClientesController::class, 'buscarCliente'])->
 //Route::resource('Clientes', 'App\Http\ControllersClientesController');
  Route::resource('Clientes', ClientesController::class);
  Route::get('buscarCliente/{id}' ,[ClientesController::class, 'buscarCliente'])->name('buscarCliente'); 
+ Route::get('buscarClientePdv/{id}' , [ClientesController::class, 'buscarClientesPdv'])->name('buscarClientesPdv');
 
 
 /*https://www.youtube.com/watch?v=tWI-x7gCwYg&t=142s link de rotas */

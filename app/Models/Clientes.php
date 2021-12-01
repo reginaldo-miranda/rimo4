@@ -10,5 +10,6 @@ class Clientes extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $keyType = 'int';
     protected $fillable = ['nome', 'fone1'];
 }

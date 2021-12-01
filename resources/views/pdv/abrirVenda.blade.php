@@ -8,25 +8,26 @@
  cliente: <input type="text">
   <div>
       {{-- anterior <a href={{'listarClientes.index'}}>iniciar </a> --}}
-      <a href={{ route('Clientes.index')}}>iniciar </a>
+      <a href={{ route('Clientes.index')}}>nova venda</a>
   </div>
 </div><br>
 
-  @foreach ($pdv as $prod)
+  @foreach ($pdv as $pd)
   <div>
         <tr>
                  
-            <td>{{ $prod->id }}</td>
+            <td>{{ $pd->id }}</td>
          
-            <td>{{ $prod->nome }}</td>
+            <td>{{ $pd->nome }}</td>
 
-            <td>{{ $prod->status}}</td>
-            <td>{{ number_format($prod->vtotal, 2, ',', '.') }}</td>
+            <td>{{ $pd->status}}</td>
+            <td>{{ number_format($pd->vtotal, 2, ',', '.') }}</td>
             <td>
             
                @csrf
-                <a href="{{ route('pdv.create', $prod->id) }}">
-                   <button id="btneditar" >Inseir</button> 
+               {{--  <a href="{{ route('pdv.create', $pd->id) }}"> --}}
+                 <a href="{{ route('buscarClientesPdv', $pd->id) }}"> 
+                   <button id="btneditar" >Inseir 1</button> 
                 </a> 
                 
         {{--    </td> -

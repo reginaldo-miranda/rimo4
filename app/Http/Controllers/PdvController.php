@@ -57,7 +57,7 @@ class PdvController extends Controller
      */
     public function create()
     {   
-        
+       
        $produtos = produto::get();
        $grupo    = grupo::get();
        //$pdvitens = pdvitens::get();
@@ -84,7 +84,7 @@ class PdvController extends Controller
       // dd($request->all());
        $pdv = pdv::create($request->all());
 
-        return redirect()->route('abrirVenda.index');
+        return redirect()->route('pdv.index');
        // return 'aqui na store';
     }
 
@@ -98,7 +98,7 @@ class PdvController extends Controller
      {
  
       $dados = $request->all();
-     // dd($dados);
+     //dd($dados);
        $dados = $request->grupo;
        // dd($dados);
        
