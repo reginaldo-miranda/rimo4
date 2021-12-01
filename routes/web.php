@@ -33,7 +33,7 @@ Route::get('/', function () {
  // rs Route::get('abrirvenda.index' , [PdvController::class, 'index' ] )->name('abrirVenda.index');
 // Route::post('gravar' ,  [PdvController::class, 'store'])->name('gravar.store');
 
- Route::resource('pdv', PdvController::class);
+  Route::resource('pdv', PdvController::class);
 
  /*---------------------------------------------------------------------*/
 
@@ -90,12 +90,12 @@ Route::get('buscarCliente/{id}' ,[ClientesController::class, 'buscarCliente'])->
  Route::get('buscarCliente/{id}' ,[ClientesController::class, 'buscarCliente'])->name('buscarCliente'); 
 
 
-/*https://www.youtube.com/watch?v=tWI-x7gCwYg&t=142s link de rotas 
-
-Route::resource([
-   'Clientes' => 'ClientesController::class',
-   'Grupo'    => 'GrupoController::class',
-   'Produtos' => 'ProdutoController::class'
+/*https://www.youtube.com/watch?v=tWI-x7gCwYg&t=142s link de rotas */
+/*
+Route::apiResources([
+   'Clientes' => 'ClientesController',
+   'Grupo'    => 'GrupoController',
+   'Produtos' => 'ProdutoController'
 
 ]);
 /*-----------------------------------------------------------------------*/
