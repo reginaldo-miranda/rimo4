@@ -6,6 +6,7 @@ use App\Models\pdvitens;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Grupo;
+use App\Models\Clientes;
 use DB;
 
 class PdvitensController extends Controller
@@ -106,11 +107,13 @@ class PdvitensController extends Controller
        $pdvitens = DB::table('pdvitens')
       ->select('pdvitens.*', 'produtos.descricao')
       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
-     // dd($pdvitens);
+      dd($pdvitens);
 
         $grupo = grupo::get();
-       // return view('pdv.listarProdEscolhido', compact('pdvitens'));
-        return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens'));
+        $cliente = clientes::get();
+      //  dd($cliente);
+     //   return view('pdv.listarProdEscolhido', compact('pdvitens'));
+       return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens', 'cliente'));
     }
 
      public function acrescentar(){

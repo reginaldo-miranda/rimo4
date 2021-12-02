@@ -12,7 +12,8 @@
   </div>
 </div><br>
 
-  @foreach ($pdv as $pd)
+ {{--  @foreach ($pdv as $pd) --}}
+   @foreach ($pdv as $pd)
   <div>
         <tr>
                  

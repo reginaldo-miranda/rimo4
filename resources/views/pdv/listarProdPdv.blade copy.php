@@ -1,6 +1,6 @@
   @extends('layout')
 
-<h1>Listagem de Produtos a escolher</h1>
+<h1>Listagem de Produtos a escolher listarProdPdv</h1>
 
 @foreach ($dados as $prod)
   <div>

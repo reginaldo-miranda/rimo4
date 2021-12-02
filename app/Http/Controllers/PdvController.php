@@ -99,15 +99,15 @@ class PdvController extends Controller
  
       $dados = $request->all();
      //dd($dados);
-       $dados = $request->grupo;
+      $dados = $request->grupo;
        // dd($dados);
        
      $produtos = produto::get()->where('grupo', '=', $dados);
     // dd($produtos);
        
-      return view('pdv.listarProdPdv' ,compact('produtos'));
+     // return view('pdv.listarProdPdv' ,compact('produtos'));
 
-     //  return view('pdv.listarProdPdv' ,compact('produtos'));
+       return view('pdv.pdv' ,compact('produtos'));
        
     }
 

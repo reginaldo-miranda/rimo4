@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers;
-//use App\Http\Controllers\Grupo;
+//clientesuse App\Http\Controllers\Grupo;
 use App\Models\Clientes;
 use App\models\Grupo;
 use Illuminate\Http\Request;
@@ -109,10 +109,11 @@ class ClientesController extends Controller
    
         //$dados = clientes::where('id',$aa )->first();
 
-        $dados = clientes::get()->where('id', '=' , $id );
+        $clientes = clientes::get()->where('id', '=' , $id );
+        //dd($clientes);
         $grupo = grupo::get();
             
-       return view('pdv.pdv' , compact('dados', 'grupo') );
+       return view('pdv.pdv' , compact('clientes', 'grupo') );
 
     }
 }
