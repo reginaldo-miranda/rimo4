@@ -2,6 +2,7 @@
 
 <h1>Listagem de Produtos a escolher listarProdPdv</h1>
 
+{{-- @foreach ($dados as $prod) --}}
 @foreach ($dados as $prod)
   <div>
         <tr>

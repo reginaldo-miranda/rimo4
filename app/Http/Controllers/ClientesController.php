@@ -111,9 +111,9 @@ class ClientesController extends Controller
 
         $clientes = clientes::get()->where('id', '=' , $id );
         //dd($clientes);
-        $grupo = grupo::get();
+        $grupos = grupo::get();
             
-       return view('pdv.pdv' , compact('clientes', 'grupo') );
+       return view('pdv.pdv' , compact('clientes', 'grupos') );
 
     }
 }

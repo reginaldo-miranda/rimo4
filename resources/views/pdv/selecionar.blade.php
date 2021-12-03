@@ -13,7 +13,7 @@
 <div class="form-group">
     <select id="escolher" onchange="escol(this.value);">  
           <option>escolha o grupo</option>
-       @foreach($grupo as $grup)
+       @foreach($grupos as $grup)
           <option value="{{$grup->id}}">{{$grup->descricao}}</option>
        @endforeach 
      
@@ -21,7 +21,7 @@
   {{-- funcionando  <form action="{{ route('selecionarpdv')}}" method="post">  --}}
      <form action="{{ route('pdv.show', $grup->id)}}"> 
         @csrf
-        <input type="submit" id="inputselect" name="grupo" />
+        <input type="submit" id="inputselect" name="grupo" />aqui</input>
      </form>
 </div>
 

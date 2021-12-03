@@ -17,8 +17,10 @@
  
 
  <div>
- {{-- @include('pdv.selecionar')  
-  @isset($pdvitens)
+ @include('pdv.selecionar')  
+ 
+ @include('pdv.listarProdEscolhido') 
+ {{--  @isset($pdvitens)
     <p>variavel nao existe</p>
   @endisset
    
@@ -49,5 +51,4 @@
 @endforeach --}}
 
 
-   {{--  @include('pdv.listarProdEscolhido')  --}}
 </div>
