@@ -8,7 +8,7 @@
  cliente: <input type="text">
   <div>
       {{-- anterior <a href={{'listarClientes.index'}}>iniciar </a> --}}
-      <a href={{ route('Clientes.index')}}>nova venda</a>
+      <a href="{{ route('Clientes.index')}}">nova venda</a>
   </div>
 </div><br>
 
@@ -27,10 +27,13 @@
             
                @csrf
                {{--  <a href="{{ route('pdv.create', $pd->id) }}"> --}}
-                 <a href="{{ route('buscarClientesPdv', $pd->id) }}"> 
-                   <button id="btneditar" >Inseir 1</button> 
-                </a> 
                 
+               <a href="{{ route('buscarClientesPdv', $pd->id) }}"> 
+                   <button id="btneditar" >Inseir Prod </button> 
+                
+                </a> 
+                <p>rota buscarClientesPdv</p>  
+                <p>clientes controler</p>
         {{--    </td> -
              <td>
               <a href="{{ route('apagar', $prod->id) }}">

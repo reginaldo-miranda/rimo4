@@ -67,8 +67,8 @@ class PdvController extends Controller
        ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
 
      
-      return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens'));
-  //    return redirect()->route('selecionarpdv');
+     // return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens'));
+     return redirect()->route('pdv.show');
 
  }
 
@@ -97,26 +97,24 @@ class PdvController extends Controller
     public function show(request $request)
      {
       
- 
-
-      $teste = $request->all();
-    //  dd($teste);
-      
-      $res= grupo::find($teste)->first();
-     // dd($res);
-      
-
-     // $teste = $request->grupo;
-     // dd($teste);
+           
+      $teste = $request->all(); // traz o grupo escolhido
+      //dd($teste); 
+     
+     $gr = $request->grupo;
+     //dd($teste);
        
-     $produtos = produto::get()->where('grupo', '=', $res);
-    // dd($produtos);
+   //  $produtos = produto::get()->where('grupo', '=', $gr);
+   $produtos = produto::where('grupo', '=', $gr)->get();
+  // dd($produtos);
      
    //   return view('pdv.pdv' ,compact('produtos'));
-    $grupos =  $res;
+    $grupos =  $gr;
 
+    $pdvitens = pdvitens::get();
+  //  dd($pdvitens);
    // dd($grupos);
-    return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos'));
+    return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
        
     }
 

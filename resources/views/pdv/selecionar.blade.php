@@ -22,6 +22,7 @@
      <form action="{{ route('pdv.show', $grup->id)}}"> 
         @csrf
         <input type="submit" id="inputselect" name="grupo" />aqui</input>
+        <p>pdv show</pdv>
      </form>
 </div>
 
