@@ -14,7 +14,7 @@
      Fone: <input type="text" name="nome"    id="nome" >
    </div><br>
 
-{{-- @include('pdv.listarProdEscolhido') --}}
+ @include('pdv.listarProdEscolhido') 
  
   @include('pdv.selecionar') 
 

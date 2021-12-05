@@ -6,6 +6,7 @@ use App\Http\Controllers;
 //clientesuse App\Http\Controllers\Grupo;
 use App\Models\Clientes;
 use App\models\Grupo;
+use App\models\Pdvitens;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
@@ -112,8 +113,9 @@ class ClientesController extends Controller
         $clientes = clientes::get()->where('id', '=' , $id );
         //dd($clientes);
         $grupos = grupo::get();
+        $pdvitens = pdvitens::where('id_cliente', '=', $id)->get();
             
-       return view('pdv.pdv' , compact('clientes', 'grupos') );
+       return view('pdv.pdv' , compact('clientes', 'grupos', 'pdvitens') );
 
     }
 }
