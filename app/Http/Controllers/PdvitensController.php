@@ -87,9 +87,9 @@ class PdvitensController extends Controller
         //
     }
 
-    public function escolherprod($id){
+    public function escolherprod(Request $request, $id){
 
-     //  dd($id);
+      //dd($id);
        $produtos = produto::find($id);
       // dd($produtos) ;
 
@@ -98,22 +98,22 @@ class PdvitensController extends Controller
         'id_cliente' => '1' ,
         'id_produto' => $produtos->id,
         'vunit'      => $produtos->pvenda,
-        'qde'        => '1',
+        'qde'        => $request->qde,
         'vtotal'    => '10',
-        'unid'      => 'un',  
+        'unid'      => $produtos->un,  
        ]);
 
        // $pdvitens = pdvitens::get();
        $pdvitens = DB::table('pdvitens')
       ->select('pdvitens.*', 'produtos.descricao')
       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
-      dd($pdvitens);
+      //dd($pdvitens);
 
-        $grupo = grupo::get();
-        $cliente = clientes::get();
+        $grupos = grupo::get();
+        $clientes = clientes::get();
       //  dd($cliente);
      //   return view('pdv.listarProdEscolhido', compact('pdvitens'));
-       return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens', 'cliente'));
+       return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes'));
     }
 
      public function acrescentar($id){

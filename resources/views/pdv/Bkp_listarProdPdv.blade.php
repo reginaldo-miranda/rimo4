@@ -11,12 +11,13 @@
             <td>{{ $prod->descricao }}</td>
             <td>{{ number_format($prod->pvenda, 2, ',', '.') }}</td>
             <td>
-              <form action="{{ route('prodescolhido', $prod->id) }}" method="post"> {{--pdvitens --}}
-                 @csrf
-                 qde:<input type="type" id="inputqde" name="qde"></input>
-                 <button id="btneditar" >Escolher</button> 
+             qde:<input type="type" id="inputqde" name="qde">
+              @csrf
+               <a href="{{ route('prodescolhido', $prod->id) }}"> pdvitens 
+               
+                   <button id="btneditar" >Escolher</button> 
+                </a> 
                 
-              </form> 
             </td>
         {{--     <td>
               <a href="{{ route('apagar', $prod->id) }}">
