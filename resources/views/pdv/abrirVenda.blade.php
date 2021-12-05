@@ -29,7 +29,7 @@
                {{--  <a href="{{ route('pdv.create', $pd->id) }}"> --}}
                 
                <a href="{{ route('buscarClientesPdv', $pd->id) }}"> 
-                   <button id="btneditar" >Inseir Prod </button> 
+                   <button id="btneditar" >Inseir P </button> 
                 
                 </a> 
                 <p>rota buscarClientesPdv</p>  

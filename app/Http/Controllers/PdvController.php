@@ -33,21 +33,21 @@ class PdvController extends Controller
     public function index()
     {
        // $pdv = pdv::get();
-     //   return view('pdv.abrirVenda' , compact('pdv'));
+       //   return view('pdv.abrirVenda' , compact('pdv'));
 
         $pdv = DB::table('pdvs')
         ->select('pdvs.*', 'clientes.nome')
         ->join('clientes', 'clientes.id', '=', 'pdvs.id_clientes')->get();
-       //dd($pdv);
+        //dd($pdv);
 /*
-       $pdvitens = DB::table('pdvitens')
-       ->select('pdvitens.*', 'produtos.descricao')
-       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
-      // dd($pdvitens); */
+        $pdvitens = DB::table('pdvitens')
+        ->select('pdvitens.*', 'produtos.descricao')
+        ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
+       // dd($pdvitens); */
 
 
-
-       return view('pdv.abrirVenda' , compact('pdv'));
+      //  return 'aqui na pdv controle index';
+        return view('pdv.abrirVenda' , compact('pdv'));
     }
 
     /**
@@ -57,7 +57,7 @@ class PdvController extends Controller
      */
     public function create()
     {   
-       
+       /*
        $produtos = produto::get();
        $grupo    = grupo::get();
        //$pdvitens = pdvitens::get();
@@ -66,9 +66,11 @@ class PdvController extends Controller
        ->select('pdvitens.*', 'produtos.descricao')
        ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
 
-     
-     // return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens'));
-     return redirect()->route('pdv.show');
+      dd($pdvitens);
+      return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens'));
+     //return redirect()->route('pdv.show');
+     */
+    return 'aqui na create pdv controller';
 
  }
 
@@ -114,8 +116,9 @@ class PdvController extends Controller
     $pdvitens = pdvitens::get();
   //  dd($pdvitens);
    // dd($grupos);
-    return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
-       
+    //return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
+   return view('pdv.listarProdPdv' ,compact('produtos', 'grupos', 'pdvitens'));
+    
     }
 
     /**

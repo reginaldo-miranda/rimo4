@@ -41,6 +41,7 @@ Route::get('/', function () {
 
   Route::get('prodescolhido/{id}', [PdvitensController::class,'escolherprod'])->name('prodescolhido');
   Route::get('acrescentar' , [PdvitensController::class , 'acrescentar'])->name('acrescentar');
+  
 
  Route::resource('pdvitens', PdvitensController::class);
  /*--------------------------- fim pdv itens ----------------------------*/
