@@ -13,9 +13,10 @@
    <div>
      Fone: <input type="text" name="nome"    id="nome" >
    </div><br>
-
- @include('pdv.listarProdEscolhido') 
- 
   @include('pdv.selecionar') 
+
+  @include('pdv.listarProdEscolhido') 
+ 
+ 
 
 </div>

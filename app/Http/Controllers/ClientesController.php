@@ -7,6 +7,7 @@ use App\Http\Controllers;
 use App\Models\Clientes;
 use App\models\Grupo;
 use App\models\Pdvitens;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +20,9 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = clientes::paginate();
+        $clientes = clientes::orderBy('nome')->paginate();
+
+        
         return view('clientes.listarClientes' , compact('clientes'));
     }
 
@@ -113,8 +116,13 @@ class ClientesController extends Controller
         $clientes = clientes::get()->where('id', '=' , $id );
         //dd($clientes);
         $grupos = grupo::get();
-        $pdvitens = pdvitens::where('id_cliente', '=', $id)->get();
-            
+       // $pdvitens = pdvitens::where('id_cliente', '=', $id)->get();
+
+        $pdvitens = DB::table('pdvitens')
+        ->select('pdvitens.*', 'produtos.descricao')
+        ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')
+        ->where('id_cliente', '=', $id)->get();
+        
        return view('pdv.pdv' , compact('clientes', 'grupos', 'pdvitens') );
 
     }

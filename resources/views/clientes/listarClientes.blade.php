@@ -3,6 +3,11 @@
 
 <h1>Listagem de Cliente</h1>
 
+<div>
+  
+  <a href="{{ route('Clientes.create')}}">Cadastrar</a>
+</div><br>
+
 @foreach ($clientes as $clie)
   <div>
         <tr>

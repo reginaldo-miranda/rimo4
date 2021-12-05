@@ -116,8 +116,9 @@ class PdvitensController extends Controller
        return view('pdv.pdv', compact('grupo', 'produtos', 'pdvitens', 'cliente'));
     }
 
-     public function acrescentar(){
+     public function acrescentar($id){
      
+        dd($id);
         return 'estou na acrescentar';
 
      }
