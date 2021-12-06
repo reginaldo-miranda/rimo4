@@ -18,6 +18,8 @@
                 </a> 
                 
             </td>
+            
+          
         {{--     <td>
               <a href="{{ route('apagar', $prod->id) }}">
                   <button id="btndeletar" >
@@ -33,7 +35,14 @@
                 </form> 
             </td>--}}
          </tr>
-   
+ 
   </div>
   
 @endforeach
+ <div><br>
+    @foreach ($totalv as $tod)
+              
+        Total Venda: {{$tod->totalve}}
+                
+     @endforeach
+ </div>

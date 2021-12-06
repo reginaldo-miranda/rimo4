@@ -122,8 +122,18 @@ class ClientesController extends Controller
         ->select('pdvitens.*', 'produtos.descricao')
         ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')
         ->where('id_cliente', '=', $id)->get();
-        
-       return view('pdv.pdv' , compact('clientes', 'grupos', 'pdvitens') );
+/*
+       $totalvenda = DB::table('pdvitens')
+        ->select('pdvitens.*', 'produtos.descricao')
+        ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')
+        ->where('id_cliente', '=', $id)->get(); */
 
+               
+       $totalv = DB::select("SELECT SUM(qde * vunit) as totalve
+       FROM pdvitens WHERE id_cliente = $id;");
+      // dd($totalv);
+        
+       return view('pdv.pdv' , compact('clientes', 'grupos', 'pdvitens' , 'totalv') );
+      
     }
 }

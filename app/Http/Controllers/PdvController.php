@@ -114,7 +114,8 @@ class PdvController extends Controller
     $grupos =  $gr;
 
     $pdvitens = pdvitens::get();
-  //  dd($pdvitens);
+
+  // dd($pdvitens);
    // dd($grupos);
     //return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
    return view('pdv.listarProdPdv' ,compact('produtos', 'grupos', 'pdvitens'));

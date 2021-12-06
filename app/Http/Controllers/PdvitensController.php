@@ -115,7 +115,10 @@ class PdvitensController extends Controller
         $clientes = clientes::get();
       //  dd($cliente);
      //   return view('pdv.listarProdEscolhido', compact('pdvitens'));
+        
        return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes'));
+
+      
     }
 
      public function acrescentar($id){
@@ -124,13 +127,19 @@ class PdvitensController extends Controller
         $pdvitens = pdvitens::findOrFail($id);
 
         $qtde = $pdvitens->qde+1;
- 
+ /*
        // dd($qtde);
          $pdvitens = pdvitens::findOrFail($id)->update([
             'qde' => $qtde,
          ]);
+        */
+
+        $pdvitens = pdvitens::findOrFail($id)->update([
+            'qde' =>  $pdvitens->qde+1,
+         ]);
         
-        return 'estou na acrescentar';
+        // return redirect()->route('buscarClientePdv/{id}');
+        return redirect()->back();
 
      }
 }

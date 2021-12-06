@@ -28,7 +28,7 @@
                @csrf
                {{--  <a href="{{ route('pdv.create', $pd->id) }}"> --}}
                 
-               <a href="{{ route('buscarClientesPdv', $pd->id) }}"> 
+               <a href="{{ route('buscarClientesPdv', $pd->id) }}"> {{-- ('buscarClientePdv/{id}' , [ClientesController::class,--}}
                    <button id="btneditar" >Inseir P </button> 
                 
                 </a> 
