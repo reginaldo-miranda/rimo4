@@ -16,6 +16,8 @@ class PdvitensController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public $qtde;
     public function index()
     {
         //
@@ -118,7 +120,16 @@ class PdvitensController extends Controller
 
      public function acrescentar($id){
      
-        dd($id);
+        //dd($id);
+        $pdvitens = pdvitens::findOrFail($id);
+
+        $qtde = $pdvitens->qde+1;
+ 
+       // dd($qtde);
+         $pdvitens = pdvitens::findOrFail($id)->update([
+            'qde' => $qtde,
+         ]);
+        
         return 'estou na acrescentar';
 
      }
