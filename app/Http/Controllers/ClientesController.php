@@ -131,7 +131,7 @@ class ClientesController extends Controller
                
        $totalv = DB::select("SELECT SUM(qde * vunit) as totalve
        FROM pdvitens WHERE id_cliente = $id;");
-      // dd($totalv);
+       //dd($totalv);
         
        return view('pdv.pdv' , compact('clientes', 'grupos', 'pdvitens' , 'totalv') );
       

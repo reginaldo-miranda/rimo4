@@ -89,15 +89,19 @@ class PdvitensController extends Controller
         //
     }
 
-    public function escolherprod(Request $request, $id){
+    public function prodescolhido(Request $request, $id){
 
-      //dd($id);
-       $produtos = produto::find($id);
+       //dd($id);
+
+       $value = $request->session()->pull('$id_cli');
+       //dd($value);
+       
+        $produtos = produto::find($id);
       // dd($produtos) ;
 
        $pdvitens = pdvitens::create([
 
-        'id_cliente' => '1' ,
+        'id_cliente' => $value,
         'id_produto' => $produtos->id,
         'vunit'      => $produtos->pvenda,
         'qde'        => $request->qde,
@@ -105,38 +109,53 @@ class PdvitensController extends Controller
         'unid'      => $produtos->un,  
        ]);
 
-       // $pdvitens = pdvitens::get();
+      
+
+      // $pdvitens = pdvitens::get();
        $pdvitens = DB::table('pdvitens')
       ->select('pdvitens.*', 'produtos.descricao')
       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
       //dd($pdvitens);
 
         $grupos = grupo::get();
-        $clientes = clientes::get();
-      //  dd($cliente);
-     //   return view('pdv.listarProdEscolhido', compact('pdvitens'));
+       // dd($value);
+
+       $clientes = clientes::where('id', '=', $value)->get();
+       // $clientes = clientes::get(); 
+       // dd($clientes);
+       // return view('pdv.listarProdEscolhido', compact('pdvitens'));
         
-       return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes'));
+        $totalv = DB::select("SELECT SUM(qde * vunit) as totalve
+        FROM pdvitens WHERE id_cliente = $id;");
+
+       // $request->session()->reflash();
+       $request->session()->forget('$id_cli');
+       // $request->session()->flush();
+   
+       return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
 
       
     }
 
-     public function acrescentar($id){
+     public function acrescentar(Request $request, $id_prod, $id_cliente){
      
-        //dd($id);
-        $pdvitens = pdvitens::findOrFail($id);
+    
+        $pdvitens = pdvitens::findOrFail($id_prod);
+       // dd($pdvitens); 
+
 
         $qtde = $pdvitens->qde+1;
- /*
+ 
        // dd($qtde);
-         $pdvitens = pdvitens::findOrFail($id)->update([
+         $pdvitens = pdvitens::findOrFail($id_prod)->update([
             'qde' => $qtde,
          ]);
-        */
+        
+         //dd($pdvitens->qde);
 
-        $pdvitens = pdvitens::findOrFail($id)->update([
+     /*    $pdvitens = pdvitens::findOrFail($id_prod)->update([
             'qde' =>  $pdvitens->qde+1,
-         ]);
+         ]);*/
         
         // return redirect()->route('buscarClientePdv/{id}');
         return redirect()->back();

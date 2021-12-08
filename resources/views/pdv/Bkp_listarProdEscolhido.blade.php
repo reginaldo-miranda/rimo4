@@ -1,23 +1,26 @@
-  @extends('layout')
+@extends('layout')
+<h3>produtos escolhidos aqui</h3>
+ 
 
-<h1>Listagem de Produtos a escolher listarProdPdv</h1>
-
-@foreach ($produtos as $prod)
+@foreach ($pdvitens as $prod)
   <div>
         <tr>
                  
             <td>{{ $prod->id }}</td>
            {{--  <td>{{ $prod->grupo}}</td>  --}}
             <td>{{ $prod->descricao }}</td>
-            <td>{{ number_format($prod->pvenda, 2, ',', '.') }}</td>
+            <td>{{ $prod->qde}}</td>
+            <td>{{ number_format($prod->vunit, 2, ',', '.') }}</td>
             <td>
-              <form action="{{ route('prodescolhido', $prod->id) }}" method="post"> {{--pdvitens --}}
-                 @csrf
-                 qde:<input type="type" id="inputqde" name="qde"></input>
-                 <button id="btneditar" >Escolher</button> 
+              
+               @csrf
+                <a href="{{ route('acrescentar', $prod->id) }}">  
+                   <button id="btneditar" >somar</button> 
+                </a> 
                 
-              </form> 
             </td>
+            
+          
         {{--     <td>
               <a href="{{ route('apagar', $prod->id) }}">
                   <button id="btndeletar" >
@@ -33,9 +36,14 @@
                 </form> 
             </td>--}}
          </tr>
-   
+ 
   </div>
   
 @endforeach
-
-{{-- {{ $produtos->links() }}--}}
+ <div><br>
+   @foreach ($totalv as $tod)
+             
+       Total Venda: {{$tod->totalve}}
+               
+    @endforeach
+</div>

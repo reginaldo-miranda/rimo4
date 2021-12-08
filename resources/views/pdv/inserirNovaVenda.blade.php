@@ -12,7 +12,7 @@
 
 <form action="{{ route('pdv.store') }}" method="post">
     @csrf
-    <input type="text" name"nome" value="{{ $clientes->nome }}">     
+    <input type="text" name="nome" value="{{ $clientes->nome }}">     
     <input type="text" name="id_clientes" value="{{$clientes->id}}">
     <input type="hidden" name="status" value="a">
     <input type="hidden" name="vtotal" value="0">

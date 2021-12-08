@@ -19,6 +19,7 @@
                  
             <td>{{ $pd->id }}</td>
          
+            <td>{{ $pd->id_clientes }}</td>
             <td>{{ $pd->nome }}</td>
 
             <td>{{ $pd->status}}</td>
@@ -28,7 +29,7 @@
                @csrf
                {{--  <a href="{{ route('pdv.create', $pd->id) }}"> --}}
                 
-               <a href="{{ route('buscarClientesPdv', $pd->id) }}"> {{-- ('buscarClientePdv/{id}' , [ClientesController::class,--}}
+               <a href="{{ route('buscarClientesPdv', $pd->id_clientes) }}"> {{-- ('buscarClientePdv/{id}' , [ClientesController::class,--}}
                    <button id="btneditar" >Inseir P </button> 
                 
                 </a> 

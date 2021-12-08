@@ -37,7 +37,8 @@ class PdvController extends Controller
 
         $pdv = DB::table('pdvs')
         ->select('pdvs.*', 'clientes.nome')
-        ->join('clientes', 'clientes.id', '=', 'pdvs.id_clientes')->get();
+        ->join('clientes', 'clientes.id', '=', 'pdvs.id_clientes')
+        ->get();
         //dd($pdv);
 /*
         $pdvitens = DB::table('pdvitens')
@@ -115,10 +116,10 @@ class PdvController extends Controller
 
     $pdvitens = pdvitens::get();
 
-  // dd($pdvitens);
+    // dd($pdvitens);
    // dd($grupos);
     //return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
-   return view('pdv.listarProdPdv' ,compact('produtos', 'grupos', 'pdvitens'));
+   return view('pdv.listarProdEscolher' ,compact('produtos', 'grupos', 'pdvitens'));
     
     }
 
