@@ -182,24 +182,8 @@ class PdvitensController extends Controller
         $produtos = produto::find($id);
        // dd($produtos) ;
         
-       if (DB::table('pdvitens')->where('id_produto', $id)->count() == 0) {
 
-            DB::table('pdvitens')->insert([
 
-            'id_cliente' => $value,
-            'id_produto' => $produtos->id,
-            'vunit'      => $produtos->pvenda,
-            'qde'        => $request->qde,
-            'vtotal'    => '10',
-            'unid'      => $produtos->un, 
-
-                
-            ]);
-    
-        }else{
-            dd('nao cadastrei');
-        }
-/*
        $pdvitens = pdvitens::create([
 
         'id_cliente' => $value,
@@ -208,7 +192,7 @@ class PdvitensController extends Controller
         'qde'        => $request->qde,
         'vtotal'    => '10',
         'unid'      => $produtos->un,  
-       ]);*/
+       ]);
 
       
 
@@ -239,22 +223,25 @@ class PdvitensController extends Controller
     }
       
 /*
-    if (DB::table('pdvitens')->where('id_produto', $id)->count() == 0) {
+    if (DB::table('pdvitens')->where('id', 1)->count() == 0) {
 
-        DB::table('pdvitens')->insert([
-
-         'id_cliente' => $value,
-        'id_produto' => $produtos->id,
-        'vunit'      => $produtos->pvenda,
-        'qde'        => $request->qde,
-        'vtotal'    => '10',
-        'unid'      => $produtos->un, 
-
-            
+        DB::table('users')->insert([
+            'id'=>'1',
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin'),
+            'remember_token' => str_random(10),
         ]);
-
-  
+    
     }*/
+
+
+   
+
+
+
+
+
 
 }
 

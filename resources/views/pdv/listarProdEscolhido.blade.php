@@ -5,11 +5,13 @@
 @foreach ($pdvitens as $prod)
   <div>
         <tr>
-                 
+
+            <td>itens N:{{ $prod->id}}</td>
+   
             <td>{{ $prod->id_produto }}</td>
             <td>id cliente{{ $prod->id_cliente}}</td> 
             <td>{{ $prod->descricao }}</td>
-            <td>{{ $prod->qde}}</td>
+            <td>quantidade :{{ $prod->qde}}</td>
             <td>{{ number_format($prod->vunit, 2, ',', '.') }}</td>
             <td>
               <form action="{{ route('acrescentar', [$prod->id_produto , $prod->id_cliente])}}" method="post">
