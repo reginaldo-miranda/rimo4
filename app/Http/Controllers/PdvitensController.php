@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Collection;
 use App\Models\pdvitens;
 use Illuminate\Http\Request;
 use App\Models\Produto;
@@ -139,37 +140,31 @@ class PdvitensController extends Controller
       
     }*/
 
-     public function acrescentar(Request $request, $id_prod, $id_cliente){
+     public function acrescentar(Request $request, $id){
      
-    
-        $pdvitens = pdvitens::findOrFail($id_prod);
-       // dd($pdvitens); 
+        $value = $request->session()->pull('$id_cli');
 
+      /*
+            $pdvitens = DB::table('pdvitens')
+            ->select('pdvitens.*')
+            ->where('id_cliente', '=', $value )
+            ->Where('id_produto', '=' , $id   )->get();
+             
+            $qtde = $pdvitens->qde+1; 
+            dd($qtde);*/
+         
+            DB::table('pdvitens')->increment('qde', 1, ['id_produto' => $id, 'id_cliente' => $value ]);
+          
 
-        $qtde = $pdvitens->qde+1;
- 
-       // dd($qtde);
-      /*   $pdvitens = pdvitens::findOrFail($id_prod)->update([
-            'qde' => $qtde,
-         ]);
-        */
-         //dd($pdvitens->qde);
-
-     /*    $pdvitens = pdvitens::findOrFail($id_prod)->update([
-            'qde' =>  $pdvitens->qde+1,
-         ]);*/
-        
-        // return redirect()->route('buscarClientePdv/{id}');
-
-       $pdvitens = pdvitens::where('id_cliente', $id_cliente)
-                  ->update(['qde' => $qtde]);
+          // DB::table('users')->increment('votes', 1, ['name' => 'John']);
+    /*
+            $pdvitens = pdvitens::where('id_cliente', $value)
+                    ->where('id_produto', $id)    
+                    ->update(['qde' => $qtde] );*/
 
         return redirect()->back();
 
      }
-/*--------------------------*/
-/* essa é teste */
-
 
 
     public function prodescolhido(Request $request, $id){
@@ -185,34 +180,35 @@ class PdvitensController extends Controller
        $grupos = grupo::get();
        // dd($grupos);
 
-       
-             
-/*       $pdvitens = pdvitens::where('id_produto', '=' , $id , 'id_cliente' , '=' , $value)->get();
-       dd($pdvitens) ; */
+       $produtos = produto::find($id);
+      // dd($request->produtos->pvenda);
 
        $pdvitens = DB::table('pdvitens')
        ->select('pdvitens.*')
        ->where('id_cliente', '=', $value )
        ->Where('id_produto', '=' , $id   )->get();
-       dd($pdvitens) ;
-
+      // dd($pdvitens) ;
      
-       
-     if  (empty($pdvitens)) {   
-         dd($pdvitens)  ;
-       $pdvitens = pdvitens::create([
+     if  ($pdvitens->isEmpty()) {   
+         // dd($pdvitens); 
+          
+            $pdvitens = pdvitens::create([
         
-        'id_cliente' => $value,
-        'id_produto' => $produtos->id,
-        'vunit'      => $produtos->pvenda,
-        'qde'        => $request->qde,
-        'vtotal'    => '10',
-        'unid'      => $produtos->un,  
-       ]);
-
+            'id_cliente' => $value,
+             'id_produto' => $id,
+            'vunit'      => $produtos->pvenda,
+            'qde'        => $request->qde,
+            'vtotal'    => '10',
+            'unid'      => $request->un,  
+             ]);
+          
     }else{
-       dd('ja cadastrado'.$pdvitens);
+        'ja cadastrado';
+        
+        return redirect()->back();
+       
     }
+    
   /*--------------------funcionando -------    
 
       // $pdvitens = pdvitens::get();
@@ -220,26 +216,12 @@ class PdvitensController extends Controller
       ->select('pdvitens.*', 'produtos.descricao')
       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
       //dd($pdvitens); */
-
-/*-------------teste ------------------*/
-
-
  
       $pdvitens = DB::table('pdvitens')
       ->select('pdvitens.*', 'produtos.descricao')
       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')
       ->where('id_cliente' , '=' ,  $value)->get();
-  
 
-/*-------------------------------*/
-
-
-       
-     
-       // $clientes = clientes::get(); 
-       // dd($clientes);
-       // return view('pdv.listarProdEscolhido', compact('pdvitens'));
-        
         $totalv = DB::select("SELECT SUM(qde * vunit) as totalve
         FROM pdvitens WHERE id_cliente = $id;");
 
@@ -253,24 +235,6 @@ class PdvitensController extends Controller
 
       
     }
-      
-/*
-    if (DB::table('pdvitens')->where('id_produto', $id)->count() == 0) {
-
-        DB::table('pdvitens')->insert([
-
-         'id_cliente' => $value,
-        'id_produto' => $produtos->id,
-        'vunit'      => $produtos->pvenda,
-        'qde'        => $request->qde,
-        'vtotal'    => '10',
-        'unid'      => $produtos->un, 
-
-            
-        ]);
-
-  
-    }*/
 
 }
 

@@ -40,7 +40,7 @@ Route::get('/', function () {
  /*--------------------------pdv itens ------------------------------*/
 
   Route::post('prodescolhido/{id}', [PdvitensController::class,'prodescolhido'])->name('prodescolhido');
-  Route::post('acrescentar/{id}/{id_cliente}', [PdvitensController::class , 'acrescentar'])->name('acrescentar');
+  Route::post('acrescentar/{id}', [PdvitensController::class , 'acrescentar'])->name('acrescentar');
   
 
  Route::resource('pdvitens', PdvitensController::class);

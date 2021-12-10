@@ -14,7 +14,7 @@
             <td>quantidade :{{ $prod->qde}}</td>
             <td>{{ number_format($prod->vunit, 2, ',', '.') }}</td>
             <td>
-              <form action="{{ route('acrescentar', [$prod->id_produto , $prod->id_cliente])}}" method="post">
+              <form action="{{ route('acrescentar', $prod->id_produto)}}" method="post">
                 
                 @csrf
                                   
