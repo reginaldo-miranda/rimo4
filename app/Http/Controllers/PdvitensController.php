@@ -174,54 +174,68 @@ class PdvitensController extends Controller
 
     public function prodescolhido(Request $request, $id){
 
-       //dd($id);
+     // dd($id);
 
        $value = $request->session()->pull('$id_cli');
-       //dd($value);
+     // dd($value);
+
+       $clientes = clientes::where('id', '=', $value)->get();
+       //dd($clientes);
+
+       $grupos = grupo::get();
+       // dd($grupos);
+
        
-        $produtos = produto::find($id);
-       // dd($produtos) ;
-        
-       if (DB::table('pdvitens')->where('id_produto', $id)->count() == 0) {
+             
+/*       $pdvitens = pdvitens::where('id_produto', '=' , $id , 'id_cliente' , '=' , $value)->get();
+       dd($pdvitens) ; */
 
-            DB::table('pdvitens')->insert([
+       $pdvitens = DB::table('pdvitens')
+       ->select('pdvitens.*')
+       ->where('id_cliente', '=', $value )
+       ->Where('id_produto', '=' , $id   )->get();
+       dd($pdvitens) ;
 
-            'id_cliente' => $value,
-            'id_produto' => $produtos->id,
-            'vunit'      => $produtos->pvenda,
-            'qde'        => $request->qde,
-            'vtotal'    => '10',
-            'unid'      => $produtos->un, 
-
-                
-            ]);
-    
-        }else{
-            dd('nao cadastrei');
-        }
-/*
+     
+       
+     if  (empty($pdvitens)) {   
+         dd($pdvitens)  ;
        $pdvitens = pdvitens::create([
-
+        
         'id_cliente' => $value,
         'id_produto' => $produtos->id,
         'vunit'      => $produtos->pvenda,
         'qde'        => $request->qde,
         'vtotal'    => '10',
         'unid'      => $produtos->un,  
-       ]);*/
+       ]);
 
-      
+    }else{
+       dd('ja cadastrado'.$pdvitens);
+    }
+  /*--------------------funcionando -------    
 
       // $pdvitens = pdvitens::get();
        $pdvitens = DB::table('pdvitens')
       ->select('pdvitens.*', 'produtos.descricao')
       ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
-      //dd($pdvitens);
+      //dd($pdvitens); */
 
-        $grupos = grupo::get();
-       // dd($value);
+/*-------------teste ------------------*/
 
-       $clientes = clientes::where('id', '=', $value)->get();
+
+ 
+      $pdvitens = DB::table('pdvitens')
+      ->select('pdvitens.*', 'produtos.descricao')
+      ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')
+      ->where('id_cliente' , '=' ,  $value)->get();
+  
+
+/*-------------------------------*/
+
+
+       
+     
        // $clientes = clientes::get(); 
        // dd($clientes);
        // return view('pdv.listarProdEscolhido', compact('pdvitens'));
@@ -232,8 +246,10 @@ class PdvitensController extends Controller
        // $request->session()->reflash();
        $request->session()->forget('$id_cli');
        // $request->session()->flush();
-   
-       return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
+       $id='';
+
+      return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
+     //  return view('pdv.listarProdEscolhido', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
 
       
     }

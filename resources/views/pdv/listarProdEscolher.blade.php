@@ -2,6 +2,7 @@
 
 <h1>Listagem de Produtos a escolher listarProdEscolher</h1>
 
+ 
 @foreach ($produtos as $prod)
   <div>
         <tr>
