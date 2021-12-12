@@ -205,7 +205,7 @@ class PdvitensController extends Controller
     }else{
         'ja cadastrado';
         
-        return redirect()->back();
+        return redirect('$value')->back();
        
     }
     
@@ -226,10 +226,11 @@ class PdvitensController extends Controller
         FROM pdvitens WHERE id_cliente = $id;");
 
        // $request->session()->reflash();
-       $request->session()->forget('$id_cli');
-       // $request->session()->flush();
-       $id='';
-
+      // $request->session()->forget('$id_cli');
+       $request->session()->flush();
+       $request->session()->flash('id_cli');
+    //   $id='';
+      dd($value);
       return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
      //  return view('pdv.listarProdEscolhido', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
 

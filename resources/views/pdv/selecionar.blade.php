@@ -1,5 +1,6 @@
 @extends('layout')
 
+
 <script>
 
   function escol(valor){
@@ -45,7 +46,7 @@ https://www.youtube.com/watch?v=WNLC2b5AVIE
   }
  
 </script>
-
+ {{ $value }}
 <div class="form-group">
     <select id="escolher" onchange="escol(this.value);">  
           <option>escolha o grupo</option>
