@@ -189,27 +189,27 @@ class PdvitensController extends Controller
        ->Where('id_produto', '=' , $id   )->get();
       // dd($pdvitens) ;
      
-     if  ($pdvitens->isEmpty()) {   
-         // dd($pdvitens); 
+      if  ($pdvitens->isEmpty()) {   
+          // dd($pdvitens); 
+            
+              $pdvitens = pdvitens::create([
           
-            $pdvitens = pdvitens::create([
-        
-            'id_cliente' => $value,
-             'id_produto' => $id,
-            'vunit'      => $produtos->pvenda,
-            'qde'        => $request->qde,
-            'vtotal'    => '10',
-            'unid'      => $request->un,  
-             ]);
+              'id_cliente' => $value,
+              'id_produto' => $id,
+              'vunit'      => $produtos->pvenda,
+              'qde'        => $produtos->qde,
+              'vtotal'     => '10',
+              'unid'       => $produtos->un,  
+              ]);
+            
+      }else{
+          dd('ja cadastrado');
           
-    }else{
-        'ja cadastrado';
+          return redirect('$value')->back();
         
-        return redirect('$value')->back();
-       
-    }
+      }
     
-  /*--------------------funcionando -------    
+     /*--------------------funcionando -------    
 
       // $pdvitens = pdvitens::get();
        $pdvitens = DB::table('pdvitens')
@@ -225,12 +225,12 @@ class PdvitensController extends Controller
         $totalv = DB::select("SELECT SUM(qde * vunit) as totalve
         FROM pdvitens WHERE id_cliente = $id;");
 
-       // $request->session()->reflash();
+      // $request->session()->reflash();
       // $request->session()->forget('$id_cli');
-       $request->session()->flush();
-       $request->session()->flash('id_cli');
-    //   $id='';
-      dd($value);
+      // $request->session()->flush();
+      // $request->session()->flash('id_cli');
+      // $id='';
+      // dd($value);
       return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
      //  return view('pdv.listarProdEscolhido', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
 

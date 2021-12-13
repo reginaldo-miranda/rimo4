@@ -1,7 +1,6 @@
   @extends('layout')
 
-  {{ $value }}
-
+ 
 <h1>Listagem de Produtos a escolher listarProdEscolher</h1>
 
  
