@@ -9,7 +9,7 @@
    @endforeach
  {{--   {{ session()->put('my_test_key','my_value')}}  --}}
 
-   {{ session()->put('$cliente', $cliente->nome )}}
+  {{--  {{ session()->put('$cliente', $cliente->nome )}}  --}}
 
    {{ session()->put('$id_cli', $cliente->id )}}
    <div>

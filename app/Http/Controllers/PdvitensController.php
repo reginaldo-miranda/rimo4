@@ -171,8 +171,15 @@ class PdvitensController extends Controller
 
      // dd($id);
 
-       $value = $request->session()->pull('$id_cli');
-     // dd($value);
+      $value =  session()->pull('id_cli', '$cliente->id');
+      //dd($value);
+    // print_r(session()->all());
+    if(session()->has('id_cli')){
+    
+       dd('sim');
+    }else{
+      dd('nao');
+    }
 
        $clientes = clientes::where('id', '=', $value)->get();
        //dd($clientes);
@@ -241,7 +248,6 @@ class PdvitensController extends Controller
 
 /*
 $produtos = DB::table('pdvitens')
-           
 ->select('pdvitens.*', 'produtos.descricao')
 ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->where('status', '=', 1)->get();
 */
