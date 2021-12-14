@@ -14,13 +14,13 @@
             <td>quantidade :{{ $prod->qde}}</td>
             <td>{{ number_format($prod->vunit, 2, ',', '.') }}</td>
             <td>
-              <form action="{{ route('acrescentar', $prod->id_produto)}}" method="post">
-                
+             
+              <form action="{{ route('acrescentar', $prod->id_produto)}}" method="GET">
                 @csrf
                                   
                 <button id="btneditar">somar</button> 
               </form>
-                
+                 
             </td>
             
           

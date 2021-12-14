@@ -140,10 +140,16 @@ class PdvitensController extends Controller
       
     }*/
 
-     public function acrescentar(Request $request, $id){
+    public function acrescentar(Request $request, $id){
      
-        $value = $request->session()->pull('$id_cli');
+        $value = $request->session()->pull('id_cli');
 
+        $nclie = $value;
+       // dd($nclie);
+
+
+       // $produtos = produto::find($id)->first();
+      //  dd($produtos->id) ;
       /*
             $pdvitens = DB::table('pdvitens')
             ->select('pdvitens.*')
@@ -151,10 +157,34 @@ class PdvitensController extends Controller
             ->Where('id_produto', '=' , $id   )->get();
              
             $qtde = $pdvitens->qde+1; 
-            dd($qtde);*/
-         
-            DB::table('pdvitens')->increment('qde', 1, ['id_produto' => $id, 'id_cliente' => $value ]);
-          
+            dd($qtde);
+
+            DB::table('my_table')
+   ->where('rowID', 1)
+   ->update([
+       'column1' => DB::raw('column1 + 2'),
+       'column2' => DB::raw('column2 + 10'),
+       'column3' => DB::raw('column3 + 13'),
+       'column4' => DB::raw('column4 + 5'),
+   ]);
+            
+   --------------------------
+   DB::table('my_table')
+->where('rowID', 1)
+->increment('column1', 2)
+->increment('column2', 10)
+->increment('column3', 13)
+->increment('column4', 5);
+
+
+   */  
+
+   $pdvitens = pdvitens::get()->first(); 
+ $teste =  DB::table('pdvitens')->where('id_cliente', $value)->increment('qde',1);
+  dd($teste)        ;
+            
+       /* $pdvitens =  DB::table('pdvitens')->increment('qde', 1 ,['id_cliente' => $nclie]);
+        ;
 
           // DB::table('users')->increment('votes', 1, ['name' => 'John']);
     /*
@@ -162,88 +192,78 @@ class PdvitensController extends Controller
                     ->where('id_produto', $id)    
                     ->update(['qde' => $qtde] );*/
 
-        return redirect()->back();
-
-     }
-
-
-    public function prodescolhido(Request $request, $id){
-
-     // dd($id);
-
-      $value =  session()->pull('id_cli', '$cliente->id');
-      //dd($value);
-    // print_r(session()->all());
-    if(session()->has('id_cli')){
-    
-       dd('sim');
-    }else{
-      dd('nao');
+       return redirect()->back();
+       //return redirect()->route('pdv.index');
     }
 
-       $clientes = clientes::where('id', '=', $value)->get();
-       //dd($clientes);
 
-       $grupos = grupo::get();
-       // dd($grupos);
+     public function prodescolhido(Request $request, $id){
 
-       $produtos = produto::find($id);
-      // dd($request->produtos->pvenda);
-
-       $pdvitens = DB::table('pdvitens')
-       ->select('pdvitens.*')
-       ->where('id_cliente', '=', $value )
-       ->Where('id_produto', '=' , $id   )->get();
-      // dd($pdvitens) ;
-     
-      if  ($pdvitens->isEmpty()) {   
-          // dd($pdvitens); 
-            
-              $pdvitens = pdvitens::create([
-          
-              'id_cliente' => $value,
-              'id_produto' => $id,
-              'vunit'      => $produtos->pvenda,
-              'qde'        => $produtos->qde,
-              'vtotal'     => '10',
-              'unid'       => $produtos->un,  
-              ]);
-            
-      }else{
-          dd('ja cadastrado');
-          
-          return redirect('$value')->back();
-        
-      }
-    
-     /*--------------------funcionando -------    
-
-      // $pdvitens = pdvitens::get();
-       $pdvitens = DB::table('pdvitens')
-      ->select('pdvitens.*', 'produtos.descricao')
-      ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
-      //dd($pdvitens); */
+        //dd($id);
  
-      $pdvitens = DB::table('pdvitens')
-      ->select('pdvitens.*', 'produtos.descricao')
-      ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')
-      ->where('id_cliente' , '=' ,  $value)->get();
+        $value = $request->session()->pull('id_cli');
+     //  dd($value);
+        
+         $produtos = produto::find($id);
+        // dd($produtos) ;
 
-        $totalv = DB::select("SELECT SUM(qde * vunit) as totalve
-        FROM pdvitens WHERE id_cliente = $id;");
+        $pdvitens = DB::table('pdvitens')
+        ->select('pdvitens.*')
+        ->where('id_cliente', '=', $value )
+        ->Where('id_produto', '=' , $id   )->get();
+       // dd($pdvitens) ;
+      
 
-      // $request->session()->reflash();
-      // $request->session()->forget('$id_cli');
-      // $request->session()->flush();
-      // $request->session()->flash('id_cli');
-      // $id='';
-      // dd($value);
-      return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
-     //  return view('pdv.listarProdEscolhido', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
-
+        
+      if  ($pdvitens->isEmpty()) {   
+        // dd($pdvitens); 
+          
+            $pdvitens = pdvitens::create([
+        
+            'id_cliente' => $value,
+            'id_produto' => $id,
+            'vunit'      => $produtos->pvenda,
+            'qde'        => $produtos->qde,
+            'vtotal'     => '10',
+            'unid'       => $produtos->un,  
+            ]);
+          
+    }else{
+        dd('ja cadastrado');
+        
+        return redirect('$value')->back();
       
     }
 
+
+ 
+         $grupos = grupo::get();
+        // dd($value);
+ 
+        $clientes = clientes::where('id', '=', $value)->get();
+        // $clientes = clientes::get(); 
+        // dd($clientes);
+        // return view('pdv.listarProdEscolhido', compact('pdvitens'));
+
+          // $pdvitens = pdvitens::get();
+
+          $pdvitens = DB::table('pdvitens')
+          ->select('pdvitens.*', 'produtos.descricao')
+          ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')
+          ->where('id_cliente' , '=' , $value)->get();
+          //dd($pdvitens);
+         
+         $totalv = DB::select("SELECT SUM(qde * vunit) as totalve
+         FROM pdvitens WHERE id_cliente = $value;");
+ 
+        // $request->session()->reflash();
+         $request->session()->forget('id_cli');
+        // $request->session()->flush();
+    
+        return view('pdv.pdv', compact('grupos', 'produtos', 'pdvitens', 'clientes', 'totalv'));
+ 
+       
+     }
 }
 
 /*

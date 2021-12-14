@@ -48,7 +48,7 @@ class PdvController extends Controller
 
 
       //  return 'aqui na pdv controle index';
-        return view('pdv.abrirVenda' , compact('pdv'));
+        return view('pdv.abrirvenda' , compact('pdv'));
     }
 
     /**
@@ -97,29 +97,24 @@ class PdvController extends Controller
      * @param  \App\Models\Pdv  $pdv
      * @return \Illuminate\Http\Response
      */
-    public function show(request $request)
+    public function show(request $request, $id_gr )
      {
       
-           
-      $teste = $request->all(); // traz o grupo escolhido
-      //dd($teste); 
-     
-     $gr = $request->grupo;
-     //dd($teste);
+        //dd($id_gr);
+
+        $grupos = grupo::find($id_gr);
+        // dd($grupo);
        
-   //  $produtos = produto::get()->where('grupo', '=', $gr);
-   $produtos = produto::where('grupo', '=', $gr)->get();
-  // dd($produtos);
-     
-   //   return view('pdv.pdv' ,compact('produtos'));
-    $grupos =  $gr;
+        //  $produtos = produto::get()->where('grupo', '=', $gr);
+        $produtos = produto::where('grupo', '=', $id_gr)->get();
+        // dd($produtos);
 
-    $pdvitens = pdvitens::get();
-
-    // dd($pdvitens);
-   // dd($grupos);
-    //return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
-   return view('pdv.listarProdEscolher' ,compact('produtos', 'grupos', 'pdvitens'));
+        $pdvitens = pdvitens::get();
+       // dd($pdvitens->id_cliente);
+        // dd($grupos);
+        //return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
+        
+        return view('pdv.listarProdEscolher' ,compact('produtos', 'grupos', 'pdvitens'));
     
     }
 

@@ -1,0 +1,63 @@
+@extends('layout')
+
+
+<div class="form-group">
+
+ <h4>Escolha o grupo</h4>
+
+       @foreach($grupos as $grup)
+          <a href="{{ route('pdv.show', $grup->id)}}">{{$grup->id}} {{$grup->descricao}}</a><br> 
+       @endforeach 
+
+     {{--   
+     <form action="{{ route('pdv.show', $grup->id)}}"> 
+        @csrf
+        <input type="submit" id="inputselect" name="grupo" />aqui
+        <p>pdv show</p>
+     </form>  --}}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+{{--
+
+ 
+https://www.youtube.com/watch?v=WNLC2b5AVIE
+
+@extends('layout')
+
+<script>
+  function escol(valor){
+    
+    document.getElementById("inputselect").value=valor;
+   
+  }
+ 
+</script>
+ {{ $value }}
+<div class="form-group">
+    <select id="escolher" onchange="escol(this.value);">  
+          <option>escolha o grupo</option>
+       @foreach($grupos as $grup)
+          <option value="{{$grup->id}}">{{$grup->descricao}}</option>
+       @endforeach 
+     
+    </select><br>
+  {{-- funcionando  <form action="{{ route('selecionarpdv')}}" method="post">  --
+     <form action="{{ route('pdv.show', $grup->id)}}"> 
+        @csrf
+        <input type="submit" id="inputselect" name="grupo" />aqui</input>
+        <p>pdv show</pdv>
+     </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+{{--
+ 
+https://www.youtube.com/watch?v=WNLC2b5AVIE
+--}}

@@ -9,16 +9,7 @@ use App\Http\Controllers\Grupo;
 
 //use App\Http\Controllers;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes teste
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('menu.menuPrincipal');
@@ -40,7 +31,8 @@ Route::get('/', function () {
  /*--------------------------pdv itens ------------------------------*/
 
   Route::post('prodescolhido/{id}', [PdvitensController::class,'prodescolhido'])->name('prodescolhido');
-  Route::post('acrescentar/{id}', [PdvitensController::class , 'acrescentar'])->name('acrescentar');
+
+  Route::GET('acrescentar/{id}', [PdvitensController::class , 'acrescentar'])->name('acrescentar');
   
 
  Route::resource('pdvitens', PdvitensController::class);
