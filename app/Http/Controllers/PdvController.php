@@ -40,14 +40,7 @@ class PdvController extends Controller
         ->join('clientes', 'clientes.id', '=', 'pdvs.id_clientes')
         ->get();
         //dd($pdv);
-/*
-        $pdvitens = DB::table('pdvitens')
-        ->select('pdvitens.*', 'produtos.descricao')
-        ->join('produtos', 'produtos.id', '=', 'pdvitens.id_produto')->get();
-       // dd($pdvitens); */
 
-
-      //  return 'aqui na pdv controle index';
         return view('pdv.abrirvenda' , compact('pdv'));
     }
 
@@ -88,7 +81,7 @@ class PdvController extends Controller
        $pdv = pdv::create($request->all());
 
         return redirect()->route('pdv.index');
-       // return 'aqui na store';
+      
     }
 
     /**
@@ -110,10 +103,7 @@ class PdvController extends Controller
         // dd($produtos);
 
         $pdvitens = pdvitens::get();
-       // dd($pdvitens->id_cliente);
-        // dd($grupos);
-        //return view('pdv.listarProdEscolhido' ,compact('produtos', 'grupos', 'pdvitens'));
-        
+      
         return view('pdv.listarProdEscolher' ,compact('produtos', 'grupos', 'pdvitens'));
     
     }

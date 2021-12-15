@@ -12,7 +12,7 @@
   </div>
 </div><br>
 
- {{--  @foreach ($pdv as $pd) --}}
+
    @foreach ($pdv as $pd)
   <div>
         <tr>
@@ -31,10 +31,8 @@
                 
                <a href="{{ route('buscarClientesPdv', $pd->id_clientes) }}"> {{-- ('buscarClientePdv/{id}' , [ClientesController::class,--}}
                    <button id="btneditar" >Inseir P </button> 
-                
-                </a> 
-                <p>rota buscarClientesPdv</p>  
-                <p>clientes controler</p>
+               </a> 
+               
         {{--    </td> -
              <td>
               <a href="{{ route('apagar', $prod->id) }}">
